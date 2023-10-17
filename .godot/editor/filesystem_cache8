@@ -1,0 +1,11 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1697525761
+icon.svg::CompressedTexture2D::6757293398744860614::1695933867::1697525762::1::::<><>::
+README.md::TextFile::-1::1697525522::0::1::::<><>::
+::res://graphics/::1696328402
+360_F_356621844_02EwpDTxw9lOCA8B52cagLvT8j7zczbS.jpg::CompressedTexture2D::3697132921937502005::1696328395::1697525762::1::::<><>::
+blue.png::CompressedTexture2D::7772607833826270822::1695891620::1697525762::1::::<><>::
+red.png::CompressedTexture2D::6919834526688731072::1695891624::1697525762::1::::<><>::
+::res://scenes/::1697525389
+CharacterBody3D.gd::GDScript::-1::1696366612::0::1::::<>CharacterBody3D<>::
+test.tscn::PackedScene::4582221376291900535::1697525389::0::1::::<><>::uid://c5uawtgi32lho::::res://graphics/red.png<>res://scenes/CharacterBody3D.gd<>uid://bsw6iemjcv3r2::::res://graphics/360_F_356621844_02EwpDTxw9lOCA8B52cagLvT8j7zczbS.jpg
