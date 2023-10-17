@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://b6jwrtgkv3ncp"]
+
+[ext_resource type="Texture2D" uid="uid://c5uawtgi32lho" path="res://graphics/red.png" id="1_hao7w"]
+[ext_resource type="Script" path="res://scenes/CharacterBody3D.gd" id="2_27e58"]
+[ext_resource type="Texture2D" uid="uid://bsw6iemjcv3r2" path="res://graphics/360_F_356621844_02EwpDTxw9lOCA8B52cagLvT8j7zczbS.jpg" id="3_crfe4"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ngapp"]
+radius = 2.4655
+height = 7.0
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_cjywb"]
+panorama = ExtResource("3_crfe4")
+
+[sub_resource type="Sky" id="Sky_2r34j"]
+sky_material = SubResource("PanoramaSkyMaterial_cjywb")
+
+[sub_resource type="Environment" id="Environment_0k5g3"]
+background_mode = 2
+sky = SubResource("Sky_2r34j")
+
+[node name="Level" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.80907, 0)
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+script = ExtResource("2_27e58")
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
+transform = Transform3D(1, -4.85069e-16, 3.2106e-16, 3.2106e-16, 0.920505, 0.390731, -4.85069e-16, -0.390731, 0.920505, 0.1, 2.87, 7.11)
+fov = 83.5
+
+[node name="Sprite3D" type="Sprite3D" parent="CharacterBody3D"]
+shaded = true
+alpha_cut = 2
+texture = ExtResource("1_hao7w")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1.1, 0, 0, 0, 1.25, 2.08165e-12, -0.25, 2.08165e-12)
+shape = SubResource("CapsuleShape3D_ngapp")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(52, 0, 0, 0, 2, 0, 0, 0, 13, 2.08165e-12, -6, 2.08165e-12)
+use_collision = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0k5g3")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(0.694658, -0.257788, 0.671562, 3.25621e-16, 0.93358, 0.358368, -0.71934, -0.248943, 0.648519, 6, 9, 6)
+shadow_enabled = true
