@@ -1,2 +1,6 @@
 res://scenes/test.tscn
-res://scenes/PlayerScene/test_2d.tscn
+res://scenes/cleanable_object_scene/cleanable_object.tscn
+res://scenes/enemy_scene/enemy.tscn
+res://scenes/level_scene/level.tscn
+res://scenes/player_scene/player.tscn
+res://scenes/CharacterBody3D.gd
