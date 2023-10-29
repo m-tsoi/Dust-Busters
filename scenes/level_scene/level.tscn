@@ -1,9 +1,44 @@
-[gd_scene format=3 uid="uid://dkhndruykmb6"]
+[gd_scene load_steps=8 format=3 uid="uid://dkhndruykmb6"]
 
-[node name="Level" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[ext_resource type="Texture2D" uid="uid://bsw6iemjcv3r2" path="res://graphics/360_F_356621844_02EwpDTxw9lOCA8B52cagLvT8j7zczbS.jpg" id="1_i44nt"]
+[ext_resource type="PackedScene" uid="uid://dx8rx7gnu3ppx" path="res://scenes/player_scene/player.tscn" id="2_b57sj"]
+[ext_resource type="PackedScene" uid="uid://71c05ix0m481" path="res://scenes/enemy_scene/enemy.tscn" id="3_1h6y6"]
+[ext_resource type="PackedScene" uid="uid://bkoc5gffcnvwg" path="res://scenes/cleanable_object_scene/cleanable_object.tscn" id="4_lkt5i"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_cjywb"]
+panorama = ExtResource("1_i44nt")
+
+[sub_resource type="Sky" id="Sky_2r34j"]
+sky_material = SubResource("PanoramaSkyMaterial_cjywb")
+
+[sub_resource type="Environment" id="Environment_0k5g3"]
+background_mode = 2
+sky = SubResource("Sky_2r34j")
+
+[node name="Level" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.80907, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(52, 0, 0, 0, 2, 0, 0, 0, 13, 2.08165e-12, -6, 2.08165e-12)
+use_collision = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0k5g3")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(0.694658, -0.257788, 0.671562, 3.25621e-16, 0.93358, 0.358368, -0.71934, -0.248943, 0.648519, 6, 9, 6)
+shadow_enabled = true
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 3, -7)
+size = Vector3(49.2732, 26.8605, 2.85178)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("2_b57sj")]
+
+[node name="Enemy" parent="." instance=ExtResource("3_1h6y6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.927, -0.851602, 1.02276)
+
+[node name="CleanableObject" parent="." instance=ExtResource("4_lkt5i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0611, 0, 0)

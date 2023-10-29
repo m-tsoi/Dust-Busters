@@ -1,9 +1,25 @@
-[gd_scene format=3 uid="uid://dx8rx7gnu3ppx"]
+[gd_scene load_steps=4 format=3 uid="uid://dx8rx7gnu3ppx"]
 
-[node name="Player" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[ext_resource type="Script" path="res://scenes/CharacterBody3D.gd" id="1_46r0i"]
+[ext_resource type="Texture2D" uid="uid://di0dylbkcnc7w" path="res://graphics/blue.png" id="2_roo1q"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o0btn"]
+radius = 2.4655
+height = 7.0
+
+[node name="RigidBody3D" type="CharacterBody3D"]
+axis_lock_linear_z = true
+script = ExtResource("1_46r0i")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.999848, 0.0174524, 0, -0.0174524, 0.999848, 0.1, 1, 14)
+fov = 83.5
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+shaded = true
+alpha_cut = 2
+texture = ExtResource("2_roo1q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.09999, -0.00517052, 0, 0.00455006, 1.24999, 2.08165e-12, -0.25, 2.08165e-12)
+shape = SubResource("CapsuleShape3D_o0btn")
