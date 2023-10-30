@@ -42,3 +42,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.927, -0.851602, 1.02276)
 
 [node name="CleanableObject" parent="." instance=ExtResource("4_lkt5i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0611, 0, 0)
+
+[node name="CleanableObject" parent="CleanableObject" instance=ExtResource("4_lkt5i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.74219, 10.9448, 0)
+
+[node name="CleanableObject" parent="CleanableObject/CleanableObject" instance=ExtResource("4_lkt5i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6507, 9.60683, 0)
+
+[node name="CleanableObject" parent="CleanableObject/CleanableObject/CleanableObject" instance=ExtResource("4_lkt5i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3603, 13.9439, 0)
