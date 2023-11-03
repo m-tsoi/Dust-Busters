@@ -1,14 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://71c05ix0m481"]
+[gd_scene load_steps=4 format=3 uid="uid://71c05ix0m481"]
 
-[ext_resource type="Texture2D" uid="uid://c3jjvuc88f6so" path="res://icon.svg" id="1_dh2ms"]
+[ext_resource type="Texture2D" uid="uid://du3rworh4v5e" path="res://assets/sprites/enemy_sprites/CottonballSheep.PNG" id="1_4y3gl"]
+[ext_resource type="Script" path="res://scenes/enemies/enemy.gd" id="1_vbh3x"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_c504w"]
 
 [node name="Enemy" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 9
+script = ExtResource("1_vbh3x")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(2.28, 0, 0, 0, 2.28, 0, 0, 0, 2.28, 0, 0, 0)
-texture = ExtResource("1_dh2ms")
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+texture = ExtResource("1_4y3gl")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)

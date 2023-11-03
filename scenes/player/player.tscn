@@ -8,6 +8,8 @@ radius = 2.4655
 height = 7.0
 
 [node name="Player" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 11
 axis_lock_linear_z = true
 script = ExtResource("1_0731h")
 
