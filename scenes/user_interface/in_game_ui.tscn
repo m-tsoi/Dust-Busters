@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://ckbuxsq418wvj"]
+
+[ext_resource type="Script" path="res://scenes/user_interface/HPBar2D.gd" id="1_hvy4h"]
+[ext_resource type="Texture2D" uid="uid://d4j7gmqote8ag" path="res://assets/user_interface/hp_bar/barHorizontal_red_placeholder.png" id="2_72s5t"]
+[ext_resource type="Texture2D" uid="uid://dcf6mpenn2jnv" path="res://assets/user_interface/hp_bar/barHorizontal_green_placeholder.png" id="3_r6rnf"]
+[ext_resource type="Texture2D" uid="uid://c4hwe8anisutg" path="res://assets/user_interface/hp_bar/barHorizontal_yellow_placeholder.png" id="4_j3ocu"]
+
+[node name="InGameUI" type="CanvasLayer"]
+
+[node name="HPBar2D" type="Node2D" parent="."]
+script = ExtResource("1_hvy4h")
+
+[node name="HealthBar" type="TextureProgressBar" parent="HPBar2D"]
+offset_right = 377.0
+offset_bottom = 36.0
+scale = Vector2(0.698692, 0.550868)
+texture_under = ExtResource("2_72s5t")
+texture_over = ExtResource("3_r6rnf")
+texture_progress = ExtResource("4_j3ocu")
+metadata/_edit_use_anchors_ = true
