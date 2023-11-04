@@ -4,9 +4,28 @@ extends CharacterBody3D
 const SPEED = 15.0 * 1.5
 const JUMP_VELOCITY = 56
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
+var hitbox_scene: PackedScene = preload("res://scenes/player/player_hitbox.tscn")
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+var hitbox
+var is_attacking: bool = false
 
+func _process(delta):
+	if Input.is_action_just_pressed("basic_attack") and not is_attacking:
+		is_attacking = true
+		hitbox = hitbox_scene.instantiate()
+		add_child(hitbox)
+		var timer := Timer.new()
+		add_child(timer)
+		timer.wait_time = 0.5
+		timer.one_shot = true
+		timer.start()
+		timer.connect("timeout", _on_basic_attack_hitbox_timer_timeout)
+
+func _on_basic_attack_hitbox_timer_timeout() -> void:
+	print("Timer timeouted")
+	hitbox.queue_free()
+	is_attacking = false
+		
 
 func _physics_process(delta):
 	# Add the gravity.
