@@ -8,6 +8,9 @@ var hitbox_scene: PackedScene = preload("res://scenes/player/player_hitbox.tscn"
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var hitbox
 var is_attacking: bool = false
+var health = 5
+var enemies_touching: int = 0
+var invulnerable: bool = false
 
 func _process(delta):
 	if Input.is_action_just_pressed("basic_attack") and not is_attacking:
@@ -20,12 +23,40 @@ func _process(delta):
 		timer.one_shot = true
 		timer.start()
 		timer.connect("timeout", _on_basic_attack_hitbox_timer_timeout)
+	if enemies_touching > 0:
+		if (not invulnerable):
+			#TODO: Play animation, play sound, death
+			invulnerable = true
+			var invuln_timer := Timer.new()
+			add_child(invuln_timer)
+			invuln_timer.wait_time = 1
+			invuln_timer.one_shot = true
+			invuln_timer.start()
+			invuln_timer.connect("timeout", _on_invuln_timer_timeout)
+			health -= 1
+			print("Player health: ", health)
+			if (health <= 0):
+				print("[Unimplemented] Player died")
+		elif (invulnerable):
+			pass
 
 func _on_basic_attack_hitbox_timer_timeout() -> void:
 	print("Timer timeouted")
 	hitbox.queue_free()
 	is_attacking = false
-		
+
+func _on_invuln_timer_timeout() -> void:
+	print("Invuln timer timeouted")
+	invulnerable = false
+
+func _on_hurtbox_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
+	enemies_touching += 1
+	print("Area ", area_rid, " ", area, " entered player's hurtbox")
+
+func _on_hurtbox_area_shape_exited(area_rid, area, area_shape_index, local_shape_index):
+	enemies_touching -= 1
+	print("Area ", area_rid, " ", area, " left player's hurtbox")
+
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -50,3 +81,4 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, current_speed)
 
 	move_and_slide()
+
