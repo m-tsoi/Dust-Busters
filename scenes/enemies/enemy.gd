@@ -15,5 +15,7 @@ func _process(delta):
 
 func _on_hurtbox_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
 	print("Area ", area_rid, " ", area, " entered enemy's hurtbox")
-	health -= 2
+	if area.is_in_group("player_basic_attack"):
+		print("Enemy has received player's basic attack")
+		health -= 2
 	print("Enemy health: ", health)
