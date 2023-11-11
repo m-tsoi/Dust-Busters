@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://di0dylbkcnc7w" path="res://graphics/blue.png" id="2_roo1q"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o0btn"]
-radius = 2.4655
+radius = 1.67471
 height = 7.0
 
 [node name="Player" type="CharacterBody3D" groups=["player_basic_attack", "player_special_attack"]]

@@ -13,6 +13,7 @@ var health: int = 5
 var enemies_touching: int = 0
 var invulnerable: bool = false
 var is_facing_left: bool = true
+var knockback: Vector3
 
 func _process(delta):
 	# Basic attack
@@ -64,6 +65,14 @@ func _on_invuln_timer_timeout() -> void:
 	invulnerable = false
 
 func _on_hurtbox_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
+	var raw_knockback = self.global_position.direction_to(area.global_position) * 20
+	if raw_knockback.x > 0:
+		print("Knockback to the left")
+		knockback = Vector3(-45, 5, 0)
+	elif raw_knockback.x < 0:
+		print("Knockback to the right")
+		knockback = Vector3(45, 5, 0)
+		
 	enemies_touching += 1
 	print("Area ", area_rid, " ", area, " entered player's hurtbox")
 
@@ -75,12 +84,12 @@ func _on_hurtbox_area_shape_exited(area_rid, area, area_shape_index, local_shape
 func _physics_process(delta):
 	# Add the gravity.
 	var current_speed = SPEED
-	if not is_on_floor():
+	if not is_on_floor() and velocity.y > -100:
 		velocity.y -= gravity * delta
 		current_speed = current_speed / 1.5
 
 	# Handle Jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
@@ -89,10 +98,18 @@ func _physics_process(delta):
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		velocity.x = direction.x * current_speed
-		velocity.z = direction.z * current_speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, current_speed)
-		velocity.z = move_toward(velocity.z, 0, current_speed)
+		
+	if knockback != Vector3.ZERO:
+		velocity.x = knockback.x
+		if velocity.y + knockback.y > JUMP_VELOCITY:
+			velocity.y = JUMP_VELOCITY
+		else:
+			velocity.y += knockback.y
+		knockback = lerp(knockback, Vector3.ZERO, 0.2)
+		if knockback.length() < 1:
+			knockback = Vector3.ZERO
 
 	move_and_slide()
 

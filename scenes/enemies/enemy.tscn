@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://scenes/enemies/enemy.gd" id="1_vbh3x"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_c504w"]
+size = Vector3(0.921112, 1, 1)
 
 [node name="Enemy" type="RigidBody3D"]
 collision_layer = 4
@@ -12,6 +13,8 @@ script = ExtResource("1_vbh3x")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+shaded = true
+alpha_cut = 2
 texture = ExtResource("1_4y3gl")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
