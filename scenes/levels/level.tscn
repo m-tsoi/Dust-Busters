@@ -41,7 +41,8 @@ size = Vector3(49.2732, 26.8605, 2.85178)
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Enemy" parent="Enemies" instance=ExtResource("3_1h6y6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.927, 2.95747, 0.592246)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.927, 2.957, 0.592)
+leftmost_patrol_point = -10
 
 [node name="Cleanables" type="Node" parent="."]
 
