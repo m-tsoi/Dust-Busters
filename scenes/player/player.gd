@@ -15,6 +15,8 @@ var invulnerable: bool = false
 var is_facing_left: bool = true
 var knockback: Vector3
 
+signal health_changed
+
 func _process(delta):
 	# Basic attack
 	if Input.is_action_just_pressed("basic_attack") and not is_attacking:
@@ -42,6 +44,7 @@ func _process(delta):
 			invuln_timer.connect("timeout", _on_invuln_timer_timeout)
 			health -= 1
 			print("Player health: ", health)
+			emit_signal("health_changed", health)
 			if (health <= 0):
 				print("[Unimplemented] Player died")
 		elif (invulnerable):
