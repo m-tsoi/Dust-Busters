@@ -9,13 +9,10 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var basic_attack_hitbox: Node
 var is_attacking: bool = false
-var health: int = 5
 var enemies_touching: int = 0
 var invulnerable: bool = false
 var is_facing_left: bool = true
 var knockback: Vector3
-
-signal health_changed
 
 func _process(delta):
 	# Basic attack
@@ -42,9 +39,10 @@ func _process(delta):
 			invuln_timer.one_shot = true
 			invuln_timer.start()
 			invuln_timer.connect("timeout", _on_invuln_timer_timeout)
+			var health = InGameUIManager.get_player_health()
 			health -= 1
+			InGameUIManager.set_player_health(health)
 			print("Player health: ", health)
-			emit_signal("health_changed", health)
 			if (health <= 0):
 				print("[Unimplemented] Player died")
 		elif (invulnerable):

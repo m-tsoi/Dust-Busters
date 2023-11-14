@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ckbuxsq418wvj"]
+[gd_scene load_steps=4 format=3 uid="uid://ckbuxsq418wvj"]
 
 [ext_resource type="Script" path="res://scenes/user_interface/HPBar2D.gd" id="1_hvy4h"]
-[ext_resource type="Texture2D" uid="uid://d2fhwnlqxnrfc" path="res://assets/user_interface/hp_bar/barHorizontal_gray_placeholder.png" id="2_gp525"]
+[ext_resource type="Texture2D" path="res://assets/user_interface/hp_bar/barHorizontal_gray_placeholder.png" id="2_vno34"]
+[ext_resource type="Texture2D" uid="uid://dcf6mpenn2jnv" path="res://assets/user_interface/hp_bar/barHorizontal_green_placeholder.png" id="3_r6rnf"]
 
 [node name="InGameUI" type="CanvasLayer"]
 
@@ -12,5 +13,7 @@ script = ExtResource("1_hvy4h")
 offset_right = 377.0
 offset_bottom = 36.0
 scale = Vector2(0.698692, 0.550868)
-texture_under = ExtResource("2_gp525")
+max_value = 5.0
+texture_under = ExtResource("2_vno34")
+texture_progress = ExtResource("3_r6rnf")
 metadata/_edit_use_anchors_ = true
