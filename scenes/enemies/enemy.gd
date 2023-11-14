@@ -7,6 +7,7 @@ var knockback := Vector3.ZERO
 @export var rightmost_patrol_point: int = 20
 @export var cur_direction = "left"
 var ready_to_jump: bool = true
+var jump_timer_timeoutted: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,8 +18,11 @@ func _ready():
 func _process(delta):
 	if health == 0:
 		self.queue_free()
-	if ready_to_jump:
-		set_sleeping(false)
+	if jump_timer_timeoutted:
+		if (is_sleeping()):
+			jump_timer_timeoutted = false
+			ready_to_jump = true
+			set_sleeping(false)
 
 
 func _on_hurtbox_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
@@ -61,4 +65,4 @@ func _integrate_forces(state):
 		position.z = 0
 
 func _on_jump_timer_timeout() -> void:
-	ready_to_jump = true
+	jump_timer_timeoutted = true
