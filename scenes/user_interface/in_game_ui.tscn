@@ -1,20 +1,108 @@
-[gd_scene load_steps=5 format=3 uid="uid://ckbuxsq418wvj"]
+[gd_scene load_steps=6 format=3 uid="uid://ckbuxsq418wvj"]
 
 [ext_resource type="Script" path="res://scenes/user_interface/HPBar2D.gd" id="1_hvy4h"]
 [ext_resource type="Texture2D" uid="uid://d4j7gmqote8ag" path="res://assets/user_interface/hp_bar/barHorizontal_red_placeholder.png" id="2_72s5t"]
 [ext_resource type="Texture2D" uid="uid://dcf6mpenn2jnv" path="res://assets/user_interface/hp_bar/barHorizontal_green_placeholder.png" id="3_r6rnf"]
 [ext_resource type="Texture2D" uid="uid://c4hwe8anisutg" path="res://assets/user_interface/hp_bar/barHorizontal_yellow_placeholder.png" id="4_j3ocu"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qmvix"]
+bg_color = Color(0.32549, 0.584314, 0.823529, 1)
+
 [node name="InGameUI" type="CanvasLayer"]
 
 [node name="HPBar2D" type="Node2D" parent="."]
 script = ExtResource("1_hvy4h")
 
-[node name="HealthBar" type="TextureProgressBar" parent="HPBar2D"]
-offset_right = 377.0
-offset_bottom = 36.0
-scale = Vector2(0.698692, 0.550868)
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qmvix")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 2
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 232.0
+offset_bottom = 132.0
+
+[node name="HealthBar" type="TextureProgressBar" parent="Control/VBoxContainer"]
+layout_mode = 2
 texture_under = ExtResource("2_72s5t")
 texture_over = ExtResource("3_r6rnf")
 texture_progress = ExtResource("4_j3ocu")
 metadata/_edit_use_anchors_ = true
+
+[node name="Score" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Score"
+
+[node name="Timer" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Timer"
+
+[node name="MenuButton" type="MenuButton" parent="Control"]
+layout_mode = 2
+offset_left = 32.0
+offset_top = 575.0
+offset_right = 128.0
+offset_bottom = 606.0
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Main Menu"
+
+[node name="ItemList" type="ItemList" parent="Control"]
+offset_left = 999.0
+offset_top = 32.0
+offset_right = 1099.0
+offset_bottom = 132.0
+
+[node name="Key 1" type="Label" parent="Control"]
+layout_mode = 2
+offset_left = 1040.0
+offset_top = 487.0
+offset_right = 1069.0
+offset_bottom = 513.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Key
+"
+
+[node name="PowerUpBar" type="TextureProgressBar" parent="Control"]
+layout_mode = 2
+offset_left = 765.0
+offset_top = 515.0
+offset_right = 965.0
+offset_bottom = 555.0
+fill_mode = 1
+
+[node name="Key 2" type="Label" parent="Control"]
+layout_mode = 2
+offset_left = 967.0
+offset_top = 522.0
+offset_right = 996.0
+offset_bottom = 548.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Key
+"
+
+[node name="Key 3" type="Label" parent="Control"]
+layout_mode = 2
+offset_left = 1025.0
+offset_top = 577.0
+offset_right = 1054.0
+offset_bottom = 603.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Key
+"
