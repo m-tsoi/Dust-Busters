@@ -16,6 +16,10 @@ run/main_scene="res://scenes/levels/level.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+InGameUIManager="*res://scenes/autoloads/in_game_ui_manager.gd"
+
 [dotnet]
 
 project/assembly_name="Dust Busters"
