@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bkoc5gffcnvwg"]
 
-[ext_resource type="Texture2D" uid="uid://c3jjvuc88f6so" path="res://icon.svg" id="1_pjuha"]
+[ext_resource type="Texture2D" uid="uid://dcjciurgjtjg" path="res://assets/sprites/cleanable_objects/KhoiFace.png" id="1_fiuus"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sb5cq"]
 
@@ -9,8 +9,9 @@ collision_layer = 8
 collision_mask = 15
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.453183, 0, 0, 0, 0.453183, 0, 0, 0, 0.453183, 0, 0, 0)
 pixel_size = 0.02
-texture = ExtResource("1_pjuha")
+texture = ExtResource("1_fiuus")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
