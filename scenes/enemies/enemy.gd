@@ -1,68 +1,73 @@
-extends RigidBody3D
+extends CharacterBody3D
 
 var health := 10
-var knockback := Vector3.ZERO
-@export var goofy_collisions: bool = false
-@export var leftmost_patrol_point: int = -20
-@export var rightmost_patrol_point: int = 20
+@export var leftmost_patrol_point: int = -10
+@export var rightmost_patrol_point: int = 10
 @export var cur_direction = "left"
-var ready_to_jump: bool = true
-var jump_timer_timeoutted: bool = false
+@export var JUMP_SPEEDS = Vector2(15.0, 30.0)
+@export var KNOCKBACK_SPEEDS = Vector2(20, 30)
+var jump_timer_timeoutted: bool = true
+var knockback_dir = "none"
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
+# Get the gravity from the project settings to be synced with RigidBody nodes.
+var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	# Free when health is 0
 	if health == 0:
 		self.queue_free()
-	if jump_timer_timeoutted:
-		if (is_sleeping()):
-			jump_timer_timeoutted = false
-			ready_to_jump = true
-			set_sleeping(false)
 
+func _physics_process(delta):
+	# Add the gravity
+	if not is_on_floor():
+		velocity.y -= gravity * delta
 
-func _on_hurtbox_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
-	print("Area ", area_rid, " ", area, " entered enemy's hurtbox")
-	if area.is_in_group("player_basic_attack"):
-		set_sleeping(false)
-		print("Enemy has received player's basic attack")
-		health -= 2
-		var raw_knockback = self.global_position.direction_to(area.global_position) * 40
-		if raw_knockback.x > 0:
-			knockback = Vector3(-25, 40, 0)
-		elif raw_knockback.x < 0:
-			knockback = Vector3(25, 40, 0)
-	print("Enemy health: ", health)
-
-func _integrate_forces(state):
-	if ready_to_jump:
-		if position.x < leftmost_patrol_point:
+	# Handle Jump
+	if knockback_dir != "none":
+		velocity.y += KNOCKBACK_SPEEDS.y
+		if knockback_dir == "left":
+			velocity.x += KNOCKBACK_SPEEDS.x * -1
+		elif knockback_dir == "right":
+			velocity.x += KNOCKBACK_SPEEDS.x
+		knockback_dir = "none"
+	elif jump_timer_timeoutted and is_on_floor():
+		jump_timer_timeoutted = false
+		if global_position.x < leftmost_patrol_point:
 			cur_direction = "right"
 			$Sprite3D.flip_h = true
-		if position.x > rightmost_patrol_point:
+		if global_position.x > rightmost_patrol_point:
 			cur_direction = "left"
 			$Sprite3D.flip_h = false
+		velocity.y = JUMP_SPEEDS.y
 		if cur_direction == "left":
-			state.apply_impulse(Vector3(-20, 30, 0))
+			velocity.x += JUMP_SPEEDS.x * -1
 		elif cur_direction == "right":
-			state.apply_impulse(Vector3(20, 30, 0))
+			velocity.x += JUMP_SPEEDS.x
 		var jump_timer := Timer.new()
 		add_child(jump_timer)
 		jump_timer.wait_time = 2.5
 		jump_timer.one_shot = true
 		jump_timer.start()
 		jump_timer.connect("timeout", _on_jump_timer_timeout)
-		ready_to_jump = false
-	if knockback != Vector3.ZERO:
-		state.apply_impulse(knockback)
-		knockback = Vector3.ZERO
-	if not goofy_collisions:
-		rotation = Vector3.ZERO
-		position.z = 0
+	elif is_on_floor():
+		velocity.x = 0
+	move_and_slide()
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	cur_direction = "left"
+	pass
+
+func _on_hurtbox_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
+	print("Area ", area_rid, " ", area, " entered enemy's hurtbox")
+	if area.is_in_group("player_basic_attack"):
+		print("Enemy has received player's basic attack")
+		health -= 2
+	print("Enemy health: ", health)
+	if self.global_position.x < area.global_position.x:
+		knockback_dir = "left"
+	else:
+		knockback_dir = "right"
 
 func _on_jump_timer_timeout() -> void:
 	jump_timer_timeoutted = true

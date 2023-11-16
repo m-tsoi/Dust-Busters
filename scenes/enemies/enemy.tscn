@@ -6,20 +6,18 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_c504w"]
 size = Vector3(0.921112, 1, 1)
 
-[node name="Enemy" type="RigidBody3D"]
-collision_layer = 4
-collision_mask = 9
+[node name="Enemy" type="CharacterBody3D"]
 script = ExtResource("1_vbh3x")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+shape = SubResource("BoxShape3D_c504w")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 shaded = true
 alpha_cut = 2
 texture = ExtResource("1_4y3gl")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
-shape = SubResource("BoxShape3D_c504w")
 
 [node name="Hurtbox" type="Area3D" parent="."]
 collision_layer = 4
