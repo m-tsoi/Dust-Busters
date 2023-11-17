@@ -1,12 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://bkoc5gffcnvwg"]
+[gd_scene load_steps=5 format=3 uid="uid://bkoc5gffcnvwg"]
 
 [ext_resource type="Texture2D" uid="uid://dcjciurgjtjg" path="res://assets/sprites/cleanable_objects/KhoiFace.png" id="1_fiuus"]
+[ext_resource type="Script" path="res://scenes/cleanables/cleanable_object.gd" id="1_sstwd"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sb5cq"]
+size = Vector3(2.02801, 2.04318, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ens7c"]
 
 [node name="CleanableObject" type="StaticBody3D"]
 collision_layer = 8
 collision_mask = 15
+script = ExtResource("1_sstwd")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(0.453183, 0, 0, 0, 0.453183, 0, 0, 0, 0.453183, 0, 0, 0)
@@ -14,5 +19,14 @@ pixel_size = 0.02
 texture = ExtResource("1_fiuus")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 shape = SubResource("BoxShape3D_sb5cq")
+
+[node name="Hurtbox" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+shape = SubResource("BoxShape3D_ens7c")
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
