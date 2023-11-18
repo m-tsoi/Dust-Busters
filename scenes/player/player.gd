@@ -18,6 +18,7 @@ func _process(delta):
 	# Basic attack
 	if Input.is_action_just_pressed("basic_attack") and not is_attacking:
 		is_attacking = true
+		$attack.play()
 		basic_attack_hitbox = hitbox_scene.instantiate()
 		basic_attack_hitbox.add_to_group("player_basic_attack")
 		add_child(basic_attack_hitbox)
@@ -42,9 +43,11 @@ func _process(delta):
 			var health = InGameUIManager.get_player_health()
 			health -= 1
 			InGameUIManager.set_player_health(health)
+			$hurt.play()
 			print("Player health: ", health)
 			if (health <= 0):
 				print("[Unimplemented] Player died")
+				$death.play()
 		elif (invulnerable):
 			pass
 	
@@ -92,9 +95,11 @@ func _physics_process(delta):
 	# Handle Jump.
 	if Input.is_action_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		$jump.play()
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
+	# TODO: Add periodic step sound effect for walking
 	var input_dir = Input.get_vector("move_left", "move_right", "ui_up", "ui_down")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
