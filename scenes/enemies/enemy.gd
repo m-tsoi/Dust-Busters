@@ -48,7 +48,7 @@ func _physics_process(delta):
 		jump_timer.wait_time = 2.5
 		jump_timer.one_shot = true
 		jump_timer.start()
-		$jump.play()
+		$EnemyJump.play()
 		jump_timer.connect("timeout", _on_jump_timer_timeout)
 	elif is_on_floor():
 		velocity.x = 0
@@ -64,7 +64,7 @@ func _on_hurtbox_area_shape_entered(area_rid, area, area_shape_index, local_shap
 	if area.is_in_group("player_basic_attack"):
 		print("Enemy has received player's basic attack")
 		health -= 2
-		$ehurt.play()
+		$EnemyHurt.play()
 	print("Enemy health: ", health)
 	if self.global_position.x < area.global_position.x:
 		knockback_dir = "left"

@@ -18,7 +18,7 @@ func _process(delta):
 	# Basic attack
 	if Input.is_action_just_pressed("basic_attack") and not is_attacking:
 		is_attacking = true
-		$attack.play()
+		$PlayAttack.play()
 		basic_attack_hitbox = hitbox_scene.instantiate()
 		basic_attack_hitbox.add_to_group("player_basic_attack")
 		add_child(basic_attack_hitbox)
@@ -43,11 +43,11 @@ func _process(delta):
 			var health = InGameUIManager.get_player_health()
 			health -= 1
 			InGameUIManager.set_player_health(health)
-			$hurt.play()
+			$PlayerHurt.play()
 			print("Player health: ", health)
 			if (health <= 0):
 				print("[Unimplemented] Player died")
-				$death.play()
+				$PlayerDeath.play()
 		elif (invulnerable):
 			pass
 	
@@ -95,7 +95,7 @@ func _physics_process(delta):
 	# Handle Jump.
 	if Input.is_action_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-		$jump.play()
+		$PlayerJump.play()
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.

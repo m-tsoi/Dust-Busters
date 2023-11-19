@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://71c05ix0m481" path="res://scenes/enemies/enemy.tscn" id="3_1h6y6"]
 [ext_resource type="PackedScene" uid="uid://bkoc5gffcnvwg" path="res://scenes/cleanables/cleanable_object.tscn" id="4_lkt5i"]
 [ext_resource type="PackedScene" uid="uid://ckbuxsq418wvj" path="res://scenes/user_interface/in_game_ui.tscn" id="5_115o0"]
-[ext_resource type="AudioStream" uid="uid://bcwqmbri827tt" path="res://assets/THESONGS!!/janitorscloset.ogg" id="6_xvnnw"]
+[ext_resource type="AudioStream" uid="uid://bcwqmbri827tt" path="res://assets/music/janitorscloset.ogg" id="6_xvnnw"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_cjywb"]
 panorama = ExtResource("1_i44nt")
@@ -62,6 +62,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.20771, 38.3046, 0)
 
 [node name="InGameUI" parent="." instance=ExtResource("5_115o0")]
 
-[node name="song" type="AudioStreamPlayer" parent="."]
+[node name="TestStageMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_xvnnw")
 autoplay = true
