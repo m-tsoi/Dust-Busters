@@ -1208,53 +1208,53 @@ position = Vector2(1476, 1623)
 modification_stack = SubResource("SkeletonModificationStack2D_x6krl")
 
 [node name="HairBackSprite" type="Sprite2D" parent="PlayerViewport/PlayerSkeleton"]
-position = Vector2(-663.172, -988.719)
-rotation = -0.103106
-scale = Vector2(0.99951, 0.999547)
-skew = -0.000109911
+position = Vector2(-750.742, -997.215)
+rotation = 0.000705252
+scale = Vector2(0.999503, 0.999524)
+skew = -0.000116706
 texture = ExtResource("2_l5v0q")
 
 [node name="HeadBandSprite" type="Sprite2D" parent="PlayerViewport/PlayerSkeleton"]
-position = Vector2(-837.963, -849.358)
-rotation = 0.014172
-scale = Vector2(0.999527, 0.999543)
-skew = -0.000112414
+position = Vector2(-852.816, -809.326)
+rotation = 0.0453448
+scale = Vector2(0.99951, 0.999516)
+skew = -0.000115395
 texture = ExtResource("3_40r3l")
 
 [node name="UpperLeftArmSprite" type="Sprite2D" parent="PlayerViewport/PlayerSkeleton"]
-position = Vector2(-514.934, -687.552)
-rotation = 0.122
-scale = Vector2(0.999665, 0.999684)
-skew = -0.000230193
+position = Vector2(-518.026, -687.169)
+rotation = -0.0943122
+scale = Vector2(0.999645, 0.999687)
+skew = -0.000227928
 texture = ExtResource("4_fjxxu")
 centered = false
 offset = Vector2(-96, -62)
 
 [node name="LowerLeftArmSprite" type="Sprite2D" parent="PlayerViewport/PlayerSkeleton/UpperLeftArmSprite"]
-position = Vector2(186.546, 195.51)
-rotation = -0.45257
-scale = Vector2(0.999863, 0.999844)
-skew = -0.000270605
+position = Vector2(125.464, 252.624)
+rotation = 0.0301688
+scale = Vector2(0.999862, 0.999843)
+skew = -0.000272393
 texture = ExtResource("5_4tivy")
 
 [node name="UpperLeftLegSprite" type="Sprite2D" parent="PlayerViewport/PlayerSkeleton"]
-position = Vector2(-476.431, -311.848)
-rotation = -0.272997
-scale = Vector2(0.999662, 0.999697)
-skew = -0.000368357
+position = Vector2(-476.187, -308.096)
+rotation = -0.106685
+scale = Vector2(0.99966, 0.999681)
+skew = -0.000386238
 texture = ExtResource("6_gyu7r")
 
 [node name="LowerLeftLegSprite" type="Sprite2D" parent="PlayerViewport/PlayerSkeleton/UpperLeftLegSprite"]
-position = Vector2(36.7825, 365.953)
-rotation = 0.164781
-scale = Vector2(0.999819, 0.999828)
-skew = -0.000219107
+position = Vector2(53.0308, 364.661)
+rotation = 0.112937
+scale = Vector2(0.999817, 0.999827)
+skew = -0.000223994
 texture = ExtResource("7_dxbyk")
 
 [node name="TorsoBone" type="Bone2D" parent="PlayerViewport/PlayerSkeleton"]
 position = Vector2(-575, -405)
-scale = Vector2(0.999831, 0.999846)
-skew = -5.61476e-05
+scale = Vector2(0.999831, 0.999843)
+skew = -5.62668e-05
 rest = Transform2D(1, 0, 0, 1, -575, -405)
 
 [node name="TorsoSprite" type="Sprite2D" parent="PlayerViewport/PlayerSkeleton/TorsoBone"]
@@ -1277,8 +1277,8 @@ texture = ExtResource("10_oqnka")
 
 [node name="HeadBandBone" type="Bone2D" parent="PlayerViewport/PlayerSkeleton/TorsoBone/HeadBone"]
 position = Vector2(-266, 48)
-scale = Vector2(0.999866, 0.999864)
-skew = -5.68628e-05
+scale = Vector2(0.999845, 0.999843)
+skew = -5.79357e-05
 rest = Transform2D(1, 0, 0, 1, -266, 48)
 auto_calculate_length_and_angle = false
 length = 251.014
@@ -1291,8 +1291,8 @@ remote_path = NodePath("../../../../HeadBandSprite")
 [node name="HairBone" type="Bone2D" parent="PlayerViewport/PlayerSkeleton/TorsoBone/HeadBone"]
 position = Vector2(9, -265)
 rotation = -0.00134802
-scale = Vector2(0.999854, 0.999862)
-skew = -5.99623e-05
+scale = Vector2(0.999841, 0.999849)
+skew = -6.02007e-05
 rest = Transform2D(0.999999, -0.00134802, 0.00134802, 0.999999, 9, -265)
 auto_calculate_length_and_angle = false
 length = 145.028
@@ -1309,8 +1309,8 @@ remote_path = NodePath("../../../../HairBackSprite")
 [node name="UpperLeftArmBone" type="Bone2D" parent="PlayerViewport/PlayerSkeleton/TorsoBone"]
 position = Vector2(57, -295)
 rotation = -0.00732353
-scale = Vector2(0.999828, 0.999843)
-skew = -0.000172257
+scale = Vector2(0.999819, 0.999838)
+skew = -0.00017488
 rest = Transform2D(0.984222, -0.176865, 0.176879, 0.984219, 57, -295)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="PlayerViewport/PlayerSkeleton/TorsoBone/UpperLeftArmBone"]
@@ -1319,8 +1319,8 @@ remote_path = NodePath("../../../UpperLeftArmSprite")
 [node name="LowerLeftArmBone" type="Bone2D" parent="PlayerViewport/PlayerSkeleton/TorsoBone/UpperLeftArmBone"]
 position = Vector2(40, 100)
 rotation = 0.0301688
-scale = Vector2(0.999863, 0.999844)
-skew = -0.000270605
+scale = Vector2(0.999862, 0.999843)
+skew = -0.000272393
 rest = Transform2D(0.999537, 0.030164, -0.0301607, 0.999538, 40, 100)
 auto_calculate_length_and_angle = false
 length = 228.095
@@ -1333,8 +1333,8 @@ remote_path = NodePath("../../../../UpperLeftArmSprite/LowerLeftArmSprite")
 [node name="UpperLeftLegBone" type="Bone2D" parent="PlayerViewport/PlayerSkeleton/TorsoBone"]
 position = Vector2(79, 40)
 rotation = 0.0490162
-scale = Vector2(0.999846, 0.999836)
-skew = -0.000330806
+scale = Vector2(0.999835, 0.999832)
+skew = -0.000333786
 rest = Transform2D(0.998739, 0.0489937, -0.0489407, 0.998741, 79, 40)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="PlayerViewport/PlayerSkeleton/TorsoBone/UpperLeftLegBone"]
@@ -1344,8 +1344,8 @@ remote_path = NodePath("../../../UpperLeftLegSprite")
 [node name="LowerLeftLegBone" type="Bone2D" parent="PlayerViewport/PlayerSkeleton/TorsoBone/UpperLeftLegBone"]
 position = Vector2(35, 98)
 rotation = -0.0570094
-scale = Vector2(0.999819, 0.999828)
-skew = -0.000219107
+scale = Vector2(0.999817, 0.999826)
+skew = -0.000223994
 rest = Transform2D(0.998327, -0.0569758, 0.0569907, 0.99833, 35, 98)
 auto_calculate_length_and_angle = false
 length = 430.73
@@ -1358,8 +1358,8 @@ remote_path = NodePath("../../../../UpperLeftLegSprite/LowerLeftLegSprite")
 [node name="UpperRightLegBone" type="Bone2D" parent="PlayerViewport/PlayerSkeleton/TorsoBone"]
 position = Vector2(-96, 34)
 rotation = 0.0618877
-scale = Vector2(0.999843, 0.999846)
-skew = -0.000256181
+scale = Vector2(0.999834, 0.999836)
+skew = -0.000259995
 rest = Transform2D(0.998067, 0.0618471, -0.0618413, 0.99807, -96, 34)
 
 [node name="UpperRightLegSprite" type="Sprite2D" parent="PlayerViewport/PlayerSkeleton/TorsoBone/UpperRightLegBone"]
@@ -1369,8 +1369,8 @@ texture = ExtResource("12_8qotg")
 [node name="LowerRightLegBone" type="Bone2D" parent="PlayerViewport/PlayerSkeleton/TorsoBone/UpperRightLegBone"]
 position = Vector2(-3, 122)
 rotation = -0.0683286
-scale = Vector2(0.999844, 0.999841)
-skew = -0.000448108
+scale = Vector2(0.999831, 0.999831)
+skew = -0.000451207
 rest = Transform2D(0.997658, -0.0682748, 0.0682755, 0.997654, -3, 122)
 auto_calculate_length_and_angle = false
 length = 405.986
@@ -1383,8 +1383,8 @@ texture = ExtResource("13_34120")
 [node name="UpperRightArmBone" type="Bone2D" parent="PlayerViewport/PlayerSkeleton/TorsoBone"]
 position = Vector2(-164, -295)
 rotation = -0.0072031
-scale = Vector2(0.999843, 0.999843)
-skew = -0.000321865
+scale = Vector2(0.99983, 0.999837)
+skew = -0.000324726
 rest = Transform2D(0.999974, -0.00720304, 0.00720304, 0.999974, -164, -295)
 
 [node name="UpperRightArmSprite" type="Sprite2D" parent="PlayerViewport/PlayerSkeleton/TorsoBone/UpperRightArmBone"]
@@ -1395,7 +1395,7 @@ texture = ExtResource("14_5i4d6")
 position = Vector2(-25, 113)
 rotation = 0.113036
 scale = Vector2(0.999841, 0.999842)
-skew = -0.000259757
+skew = -0.000261188
 rest = Transform2D(0.993618, 0.112796, -0.112796, 0.993618, -25, 113)
 auto_calculate_length_and_angle = false
 length = 306.311

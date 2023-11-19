@@ -12,12 +12,15 @@ var knockback_dir = "none"
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+@onready var animation = $AnimationPlayer
+
 func _process(delta):
 	# Free when health is 0
 	if health == 0:
 		self.queue_free()
 
 func _physics_process(delta):
+	animation.play("Walk")
 	# Add the gravity
 	if not is_on_floor():
 		velocity.y -= gravity * delta
