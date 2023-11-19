@@ -18,7 +18,7 @@ func _process(delta):
 	# Basic attack
 	if Input.is_action_just_pressed("basic_attack") and not is_attacking:
 		is_attacking = true
-		$PlayAttack.play()
+		$PlayerAttack.play()
 		basic_attack_hitbox = hitbox_scene.instantiate()
 		basic_attack_hitbox.add_to_group("player_basic_attack")
 		add_child(basic_attack_hitbox)
