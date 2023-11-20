@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkkx2eshhyi1h"
-path.s3tc="res://.godot/imported/tutorialLevel_granite.png-47ffcba1eab65178dd1fa90c87ccfc6b.s3tc.ctex"
+uid="uid://ckn0yncv0xrmb"
+path.s3tc="res://.godot/imported/tutorialLevelPlusCollisions4_EdSheeran.png-a1098f8ac3ef778567af09e29edb1360.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://assets/background/tutorialLevel_granite.png"
-dest_files=["res://.godot/imported/tutorialLevel_granite.png-47ffcba1eab65178dd1fa90c87ccfc6b.s3tc.ctex"]
+source_file="res://assets/background/tutorialLevelPlusCollisions4_EdSheeran.png"
+dest_files=["res://.godot/imported/tutorialLevelPlusCollisions4_EdSheeran.png-a1098f8ac3ef778567af09e29edb1360.s3tc.ctex"]
 
 [params]
 

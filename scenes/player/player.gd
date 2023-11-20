@@ -1,8 +1,8 @@
 extends CharacterBody3D
 
 
-const SPEED = 15.0 * 1.5
-const JUMP_VELOCITY = 56
+const SPEED = 20.0 * 1.5
+const JUMP_VELOCITY = 84
 
 var hitbox_scene: PackedScene = preload("res://scenes/player/player_hitbox.tscn")
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -30,7 +30,7 @@ func _process(delta):
 		add_child(basic_attack_hitbox)
 		var timer := Timer.new()
 		add_child(timer)
-		timer.wait_time = 0.5
+		timer.wait_time = 0.2
 		timer.one_shot = true
 		timer.start()
 		timer.connect("timeout", _on_basic_attack_hitbox_timer_timeout)
@@ -42,7 +42,7 @@ func _process(delta):
 			invulnerable = true
 			var invuln_timer := Timer.new()
 			add_child(invuln_timer)
-			invuln_timer.wait_time = 1
+			invuln_timer.wait_time = 0.4
 			invuln_timer.one_shot = true
 			invuln_timer.start()
 			invuln_timer.connect("timeout", _on_invuln_timer_timeout)
@@ -75,11 +75,11 @@ func _on_invuln_timer_timeout() -> void:
 	invulnerable = false
 
 func _on_hurtbox_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
-	var raw_knockback = self.global_position.direction_to(area.global_position) * 20
-	if raw_knockback.x > 0:
+	var raw_knockback = self.global_position.direction_to(area.global_position)
+	if raw_knockback.x > 0 and not invulnerable:
 		print("Knockback to the left")
 		knockback = Vector3(-45, 5, 0)
-	elif raw_knockback.x < 0:
+	elif raw_knockback.x <= 0 and not invulnerable:
 		print("Knockback to the right")
 		knockback = Vector3(45, 5, 0)
 		
