@@ -21,6 +21,12 @@ func _process(delta):
 		$PlayerAttack.play()
 		basic_attack_hitbox = hitbox_scene.instantiate()
 		basic_attack_hitbox.add_to_group("player_basic_attack")
+		if is_facing_left == true:
+			basic_attack_hitbox.add_to_group("left_hitbox")
+			basic_attack_hitbox.position = Vector3(-4,0,0)
+		else:
+			basic_attack_hitbox.add_to_group("right_hitbox")
+			basic_attack_hitbox.position = Vector3(4,0,0)
 		add_child(basic_attack_hitbox)
 		var timer := Timer.new()
 		add_child(timer)
