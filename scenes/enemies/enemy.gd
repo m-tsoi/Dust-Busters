@@ -66,7 +66,8 @@ func _on_hurtbox_area_shape_entered(area_rid, area, area_shape_index, local_shap
 		health -= 2
 		$EnemyHurt.play()
 	print("Enemy health: ", health)
-	if self.global_position.x < area.global_position.x:
+	#if self.global_position.x < area.global_position.x:
+	if area.is_in_group("left_hitbox"):
 		knockback_dir = "left"
 	else:
 		knockback_dir = "right"
