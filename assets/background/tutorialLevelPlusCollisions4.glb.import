@@ -3,20 +3,20 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://s0eays2hkdsg"
-path="res://.godot/imported/tutorialLevel.glb-e8f35058684ebdc3261f2f539148e065.scn"
+uid="uid://834qqsvrodyo"
+path="res://.godot/imported/tutorialLevelPlusCollisions4.glb-681a1ee45bc5d454ee2890a9da30650f.scn"
 
 [deps]
 
-source_file="res://assets/background/tutorialLevel.glb"
-dest_files=["res://.godot/imported/tutorialLevel.glb-e8f35058684ebdc3261f2f539148e065.scn"]
+source_file="res://assets/background/tutorialLevelPlusCollisions4.glb"
+dest_files=["res://.godot/imported/tutorialLevelPlusCollisions4.glb-681a1ee45bc5d454ee2890a9da30650f.scn"]
 
 [params]
 
 nodes/root_type="Node3D"
 nodes/root_name="Scene Root"
 nodes/apply_root_scale=true
-nodes/root_scale=1.0
+nodes/root_scale=4.0
 meshes/ensure_tangents=true
 meshes/generate_lods=true
 meshes/create_shadow_meshes=true

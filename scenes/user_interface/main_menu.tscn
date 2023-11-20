@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://du87khxmwfm2j"]
 
-[ext_resource type="Texture2D" uid="uid://bqehhidt86ofv" path="res://assets/user_interface/Dust-Busters-Title-Placeholder.png" id="1_rgdtp"]
+[ext_resource type="Texture2D" uid="uid://bqehhidt86ofv" path="res://assets/user_interface/main_menu/Dust-Busters-Title-Placeholder.png" id="1_rgdtp"]
 
 [sub_resource type="Gradient" id="Gradient_wnlte"]
 colors = PackedColorArray(0.0941176, 0.4, 0.666667, 1, 0.0509804, 0.282353, 0.556863, 1)
