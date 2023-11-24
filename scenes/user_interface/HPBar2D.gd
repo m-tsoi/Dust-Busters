@@ -1,4 +1,4 @@
-extends Node2D
+extends CanvasLayer
 
 # Sources: https://kidscancode.org/godot_recipes/3.x/ui/unit_healthbar/
 
@@ -7,8 +7,7 @@ var bar_high_hp = preload("res://assets/user_interface/hp_bar/barHorizontal_gree
 var bar_mid_hp = preload("res://assets/user_interface/hp_bar/barHorizontal_yellow_placeholder.png")
 var bar_low_hp = preload("res://assets/user_interface/hp_bar/barHorizontal_red_placeholder.png")
 
-@onready var healthbar = $HealthBar
-
+@onready var healthbar = $Control/MarginContainer/VBoxContainer/HealthBar
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
