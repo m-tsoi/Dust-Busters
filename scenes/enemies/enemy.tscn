@@ -1,12 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://71c05ix0m481"]
+[gd_scene load_steps=9 format=3 uid="uid://71c05ix0m481"]
 
 [ext_resource type="Texture2D" uid="uid://du3rworh4v5e" path="res://assets/sprites/enemy_sprites/CottonballSheep.PNG" id="1_4y3gl"]
 [ext_resource type="Script" path="res://scenes/enemies/enemy.gd" id="1_vbh3x"]
+[ext_resource type="AudioStream" uid="uid://jvxaanuxgx6u" path="res://assets/SFX/sheep.wav" id="3_m43vc"]
+[ext_resource type="AudioStream" uid="uid://d2x58vmmipiri" path="res://assets/SFX/bunhop.wav" id="4_t6ome"]
+[ext_resource type="AudioStream" uid="uid://b81s74b4p0g21" path="res://assets/SFX/bunland.mp3" id="5_xu2ds"]
+[ext_resource type="AudioStream" uid="uid://b21fxl8ns31jk" path="res://assets/SFX/bunscreech.mp3" id="6_lbo4d"]
+[ext_resource type="AudioStream" uid="uid://ovp6cjljwpoe" path="res://assets/SFX/bundeath.mp3" id="7_vj3oc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_c504w"]
 size = Vector3(0.921112, 1, 1)
 
 [node name="Enemy" type="CharacterBody3D"]
+collision_layer = 4
 script = ExtResource("1_vbh3x")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -34,5 +40,23 @@ collision_mask = 0
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Hitbox"]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 shape = SubResource("BoxShape3D_c504w")
+
+[node name="EnemyJump" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_t6ome")
+pitch_scale = 1.59
+
+[node name="EnemyLand" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_xu2ds")
+
+[node name="EnemyHurt" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("6_lbo4d")
+volume_db = 5.259
+
+[node name="EnemyDeath" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("7_vj3oc")
+volume_db = 12.754
+
+[node name="SheepBaa" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_m43vc")
 
 [connection signal="area_shape_entered" from="Hurtbox" to="." method="_on_hurtbox_area_shape_entered"]

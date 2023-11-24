@@ -1,19 +1,92 @@
 [gd_scene load_steps=4 format=3 uid="uid://ckbuxsq418wvj"]
 
 [ext_resource type="Script" path="res://scenes/user_interface/HPBar2D.gd" id="1_hvy4h"]
-[ext_resource type="Texture2D" path="res://assets/user_interface/hp_bar/barHorizontal_gray_placeholder.png" id="2_vno34"]
+[ext_resource type="Texture2D" uid="uid://d2fhwnlqxnrfc" path="res://assets/user_interface/hp_bar/barHorizontal_gray_placeholder.png" id="2_vno34"]
 [ext_resource type="Texture2D" uid="uid://dcf6mpenn2jnv" path="res://assets/user_interface/hp_bar/barHorizontal_green_placeholder.png" id="3_r6rnf"]
 
 [node name="InGameUI" type="CanvasLayer"]
-
-[node name="HPBar2D" type="Node2D" parent="."]
 script = ExtResource("1_hvy4h")
 
-[node name="HealthBar" type="TextureProgressBar" parent="HPBar2D"]
-offset_right = 377.0
-offset_bottom = 36.0
-scale = Vector2(0.698692, 0.550868)
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="HealthBar" type="TextureProgressBar" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
 max_value = 5.0
 texture_under = ExtResource("2_vno34")
 texture_progress = ExtResource("3_r6rnf")
 metadata/_edit_use_anchors_ = true
+
+[node name="Score" type="Label" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Score"
+
+[node name="Timer" type="Label" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Timer"
+
+[node name="MenuButton" type="MenuButton" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Main Menu"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="ItemList" type="ItemList" parent="Control/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Key 1" type="Label" parent="Control/MarginContainer/VBoxContainer3/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Key
+"
+
+[node name="PowerUpBar" type="TextureProgressBar" parent="Control/MarginContainer/VBoxContainer3/HBoxContainer"]
+layout_mode = 2
+fill_mode = 1
+
+[node name="Key 2" type="Label" parent="Control/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Key
+"
+
+[node name="Key 3" type="Label" parent="Control/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Key
+"
