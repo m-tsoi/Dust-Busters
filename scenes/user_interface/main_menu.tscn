@@ -1,6 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://du87khxmwfm2j"]
+[gd_scene load_steps=5 format=3 uid="uid://du87khxmwfm2j"]
 
+<<<<<<< Updated upstream
 [ext_resource type="Texture2D" uid="uid://bqehhidt86ofv" path="res://assets/user_interface/Dust-Busters-Title-Placeholder.png" id="1_rgdtp"]
+=======
+[ext_resource type="Texture2D" uid="uid://d0eaycuiqpmry" path="res://assets/user_interface/main_menu/Logo.PNG" id="2_o41sx"]
+[ext_resource type="Texture2D" uid="uid://bu75h3lepp6bd" path="res://assets/user_interface/main_menu/PlayButton.PNG" id="3_0lptu"]
+>>>>>>> Stashed changes
 
 [sub_resource type="Gradient" id="Gradient_wnlte"]
 colors = PackedColorArray(0.0941176, 0.4, 0.666667, 1, 0.0509804, 0.282353, 0.556863, 1)
@@ -8,16 +13,6 @@ colors = PackedColorArray(0.0941176, 0.4, 0.666667, 1, 0.0509804, 0.282353, 0.55
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ik611"]
 gradient = SubResource("Gradient_wnlte")
 fill_to = Vector2(1, 1)
-
-[sub_resource type="FontVariation" id="FontVariation_48cpd"]
-variation_embolden = 0.35
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pu3k7"]
-bg_color = Color(0.92549, 0.658824, 0, 1)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -27,7 +22,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -36,38 +31,36 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_ik611")
 
-[node name="TextureRect" type="TextureRect" parent="TextureRect"]
+[node name="Logo" type="TextureRect" parent="Background"]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -322.5
-offset_top = -168.0
-offset_right = 322.5
-offset_bottom = 75.0
+offset_left = -341.0
+offset_top = -372.0
+offset_right = 323.0
+offset_bottom = 292.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_rgdtp")
+texture = ExtResource("2_o41sx")
 expand_mode = 1
+stretch_mode = 5
 
-[node name="Button" type="Button" parent="TextureRect"]
-custom_minimum_size = Vector2(169.4, 67.294)
+[node name="PlayButton" type="Button" parent="Background"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -84.7
-offset_top = 119.353
-offset_right = 84.7
-offset_bottom = 186.647
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 780.0
+offset_top = 333.0
+offset_right = 1684.0
+offset_bottom = 1741.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.666667, 0.360784, 0.0941176, 1)
-theme_override_fonts/font = SubResource("FontVariation_48cpd")
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_pu3k7")
-text = "PLAY"
+rotation = 0.471239
+scale = Vector2(0.1, 0.1)
+icon = ExtResource("3_0lptu")
+flat = true
