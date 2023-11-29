@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [gd_scene load_steps=5 format=3 uid="uid://du87khxmwfm2j"]
 
 <<<<<<< Updated upstream
@@ -6,13 +7,33 @@
 [ext_resource type="Texture2D" uid="uid://d0eaycuiqpmry" path="res://assets/user_interface/main_menu/Logo.PNG" id="2_o41sx"]
 [ext_resource type="Texture2D" uid="uid://bu75h3lepp6bd" path="res://assets/user_interface/main_menu/PlayButton.PNG" id="3_0lptu"]
 >>>>>>> Stashed changes
+=======
+[gd_scene load_steps=4 format=3 uid="uid://du87khxmwfm2j"]
 
-[sub_resource type="Gradient" id="Gradient_wnlte"]
-colors = PackedColorArray(0.0941176, 0.4, 0.666667, 1, 0.0509804, 0.282353, 0.556863, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mds8j"]
+bg_color = Color(0.0313726, 0.219608, 0.501961, 1)
+border_width_left = 50
+border_width_top = 50
+border_width_right = 50
+border_width_bottom = 50
+border_color = Color(0.0941176, 0.4, 0.666667, 1)
+>>>>>>> parent of 85711f0 (Merge pull request #15 from m-tsoi/teah)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ovw5c"]
+bg_color = Color(0.0941176, 0.4, 0.666667, 1)
+
+<<<<<<< HEAD
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ik611"]
 gradient = SubResource("Gradient_wnlte")
 fill_to = Vector2(1, 1)
+=======
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m42pw"]
+bg_color = Color(0.92549, 0.658824, 0, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+>>>>>>> parent of 85711f0 (Merge pull request #15 from m-tsoi/teah)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -22,23 +43,84 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+<<<<<<< HEAD
 [node name="Background" type="TextureRect" parent="."]
+=======
+[node name="Panel" type="Panel" parent="."]
+>>>>>>> parent of 85711f0 (Merge pull request #15 from m-tsoi/teah)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("GradientTexture2D_ik611")
+theme_override_styles/panel = SubResource("StyleBoxFlat_mds8j")
 
+<<<<<<< HEAD
 [node name="Logo" type="TextureRect" parent="Background"]
 custom_minimum_size = Vector2(100, 100)
+=======
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Panel" type="Panel" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 2.08165e-12)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_ovw5c")
+
+[node name="Panel2" type="Panel" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 2.08165e-12)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_ovw5c")
+
+[node name="Panel3" type="Panel" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 2.08165e-12)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_ovw5c")
+
+[node name="Panel4" type="Panel" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 2.08165e-12)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_ovw5c")
+
+[node name="Panel5" type="Panel" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 2.08165e-12)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_ovw5c")
+
+[node name="Panel6" type="Panel" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 2.08165e-12)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_ovw5c")
+
+[node name="Button" type="Button" parent="."]
+>>>>>>> parent of 85711f0 (Merge pull request #15 from m-tsoi/teah)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+<<<<<<< HEAD
 offset_left = -341.0
 offset_top = -372.0
 offset_right = 323.0
@@ -64,3 +146,13 @@ rotation = 0.471239
 scale = Vector2(0.1, 0.1)
 icon = ExtResource("3_0lptu")
 flat = true
+=======
+offset_left = -130.5
+offset_top = 100.0
+offset_right = 130.5
+offset_bottom = 208.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_m42pw")
+text = "PLAY"
+>>>>>>> parent of 85711f0 (Merge pull request #15 from m-tsoi/teah)
