@@ -18,7 +18,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-InGameUIManager="*res://scenes/autoloads/in_game_ui_manager.gd"
+GlobalStatsManager="*res://scenes/autoloads/global_stats_manager.gd"
 
 [dotnet]
 
