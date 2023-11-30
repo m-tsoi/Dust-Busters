@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://du87khxmwfm2j"]
+[gd_scene load_steps=9 format=3 uid="uid://du87khxmwfm2j"]
 
 [ext_resource type="Texture2D" uid="uid://bqehhidt86ofv" path="res://assets/user_interface/main_menu/Dust-Busters-Title-Placeholder.png" id="1_rgdtp"]
+[ext_resource type="Script" path="res://scenes/user_interface/main_menu.gd" id="1_x4sgs"]
 [ext_resource type="Texture2D" uid="uid://dabq5c74cj271" path="res://assets/user_interface/main_menu/IMG_3942.PNG" id="2_u37yd"]
 [ext_resource type="Texture2D" uid="uid://bjhlv37f1g0bh" path="res://assets/user_interface/main_menu/IMG_3945.PNG" id="3_v3mtu"]
 
@@ -28,6 +29,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_x4sgs")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -109,3 +111,5 @@ rotation = 0.404916
 scale = Vector2(0.085, 0.085)
 icon = ExtResource("3_v3mtu")
 flat = true
+
+[connection signal="pressed" from="TextureRect/PlayButton" to="." method="_on_play_button_pressed"]
