@@ -9,12 +9,15 @@ var health := 10
 var jump_timer_timeoutted: bool = true
 var knockback_dir = "none"
 
+signal killed
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _process(delta):
 	# Free when health is 0
 	if health == 0:
+		killed.emit()
 		self.queue_free()
 
 func _physics_process(delta):
