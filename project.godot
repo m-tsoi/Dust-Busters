@@ -20,6 +20,11 @@ config/icon="res://icon.svg"
 
 GlobalStatsManager="*res://scenes/autoloads/global_stats_manager.gd"
 
+[display]
+
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
 [dotnet]
 
 project/assembly_name="Dust Busters"
