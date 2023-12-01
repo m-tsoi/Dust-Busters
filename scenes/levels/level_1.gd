@@ -42,5 +42,3 @@ func check_winning_conditions():
 		&& GlobalStatsManager.puddles_cleaned >= GlobalStatsManager.max_puddle_count):
 			print("WON!!!")
 			won.emit()
-	
-
