@@ -1,5 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://cjbjhjn6d8rpq"]
+[gd_scene load_steps=16 format=3 uid="uid://cjbjhjn6d8rpq"]
 
+[ext_resource type="Script" path="res://scenes/user_interface/win_screen.gd" id="1_ir7gs"]
 [ext_resource type="FontFile" uid="uid://bdcfcmrscgb2a" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="1_sfk5w"]
 [ext_resource type="Texture2D" uid="uid://cwaitsmpfquaq" path="res://assets/user_interface/icons/arrow_back.png" id="2_a1wdj"]
 [ext_resource type="Texture2D" uid="uid://cb8f4u8v88hm6" path="res://assets/user_interface/icons/star.png" id="3_gax06"]
@@ -45,6 +46,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ir7gs")
 metadata/_edit_use_anchors_ = true
 
 [node name="Panel" type="Panel" parent="."]
@@ -55,19 +57,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_cdemf")
-
-[node name="button_menu" type="Button" parent="Panel"]
-custom_minimum_size = Vector2(56, 56)
-layout_mode = 2
-offset_left = 50.0
-offset_top = 35.0
-offset_right = 106.0
-offset_bottom = 91.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-icon = ExtResource("2_a1wdj")
-flat = true
-expand_icon = true
 
 [node name="auto_aligned" type="MarginContainer" parent="Panel"]
 layout_mode = 1
@@ -400,3 +389,20 @@ theme_override_fonts/font = ExtResource("5_2418o")
 theme_override_font_sizes/font_size = 20
 text = "RESET"
 flat = true
+
+[node name="button_menu" type="Button" parent="."]
+custom_minimum_size = Vector2(56, 56)
+layout_mode = 2
+offset_left = 50.0
+offset_top = 35.0
+offset_right = 106.0
+offset_bottom = 91.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+icon = ExtResource("2_a1wdj")
+flat = true
+expand_icon = true
+
+[connection signal="pressed" from="Panel/auto_aligned/VBoxContainer/button_next" to="." method="_on_button_next_pressed"]
+[connection signal="pressed" from="Panel/auto_aligned/VBoxContainer/button_restart" to="." method="_on_button_restart_pressed"]
+[connection signal="pressed" from="button_menu" to="." method="_on_button_menu_pressed"]
