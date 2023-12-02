@@ -14,6 +14,8 @@ var invulnerable: bool = false
 var is_facing_left: bool = true
 var knockback: Vector3
 
+signal died
+
 func _process(delta):
 	# Basic attack
 	if Input.is_action_just_pressed("basic_attack") and not is_attacking:
@@ -46,14 +48,14 @@ func _process(delta):
 			invuln_timer.one_shot = true
 			invuln_timer.start()
 			invuln_timer.connect("timeout", _on_invuln_timer_timeout)
-			var health = InGameUIManager.get_player_health()
+			var health = GlobalStatsManager.player_health
 			health -= 1
-			InGameUIManager.set_player_health(health)
+			GlobalStatsManager.set_player_health(health)
 			$PlayerHurt.play()
 			print("Player health: ", health)
 			if (health <= 0):
-				print("[Unimplemented] Player died")
 				$PlayerDeath.play()
+				died.emit()
 		elif (invulnerable):
 			pass
 	

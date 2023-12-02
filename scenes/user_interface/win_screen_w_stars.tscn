@@ -1,0 +1,406 @@
+[gd_scene load_steps=16 format=3 uid="uid://c4ucg7qe63juq"]
+
+[ext_resource type="FontFile" uid="uid://bdcfcmrscgb2a" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="1_rf02x"]
+[ext_resource type="Texture2D" uid="uid://cb8f4u8v88hm6" path="res://assets/user_interface/win_lose_screen/icons/star.png" id="2_1p71x"]
+[ext_resource type="Texture2D" uid="uid://b10d2f0j51vf7" path="res://assets/user_interface/win_lose_screen/icons/check_basic.png" id="3_co6js"]
+[ext_resource type="FontFile" uid="uid://drchphlc375ma" path="res://assets/fonts/mulish_variations/Mulish-ExtraBold.ttf" id="4_l7nwt"]
+[ext_resource type="FontFile" uid="uid://djtgwyko2ohrg" path="res://assets/fonts/mulish_variations/Mulish-BoldItalic.ttf" id="5_4r4ei"]
+[ext_resource type="Texture2D" uid="uid://ci8y4jvxavfwx" path="res://assets/user_interface/win_lose_screen/icons/spray_bottle.png" id="6_q32gs"]
+[ext_resource type="Texture2D" uid="uid://c3lmtny0p6y2q" path="res://assets/user_interface/win_lose_screen/icons/stopwatch.png" id="7_rsecc"]
+[ext_resource type="Texture2D" uid="uid://cwda54eoo175a" path="res://assets/user_interface/win_lose_screen/icons/key.png" id="8_k31re"]
+[ext_resource type="Texture2D" uid="uid://cwaitsmpfquaq" path="res://assets/user_interface/win_lose_screen/icons/arrow_back.png" id="9_htlmb"]
+[ext_resource type="Texture2D" uid="uid://bs1gp8oyvb1l8" path="res://assets/user_interface/win_lose_screen/icons/arrow_rewind.png" id="10_dovn2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_18x56"]
+bg_color = Color(0, 0, 0, 0.74902)
+
+[sub_resource type="FontVariation" id="FontVariation_bny8a"]
+base_font = ExtResource("5_4r4ei")
+spacing_bottom = -4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tcgw7"]
+bg_color = Color(0.92549, 0.658824, 0, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8n8n2"]
+bg_color = Color(0.92549, 0.658824, 0, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5c3sa"]
+bg_color = Color(0.93, 0.66, 0, 0.75)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[node name="win_screen_w_stars" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="star_layout" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_18x56")
+
+[node name="auto_aligned" type="MarginContainer" parent="star_layout"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="star_layout/auto_aligned"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Title" type="Label" parent="star_layout/auto_aligned/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0941176, 0.4, 0.666667, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 34
+theme_override_fonts/font = ExtResource("1_rf02x")
+theme_override_font_sizes/font_size = 118
+text = "SUCCESS"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="top_spacer" type="Control" parent="star_layout/auto_aligned/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 16)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="star_container" type="HBoxContainer" parent="star_layout/auto_aligned/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="star_present" type="VBoxContainer" parent="star_layout/auto_aligned/VBoxContainer/star_container"]
+custom_minimum_size = Vector2(126, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/separation = -4
+
+[node name="star" type="TextureRect" parent="star_layout/auto_aligned/VBoxContainer/star_container/star_present"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture = ExtResource("2_1p71x")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="icon" type="TextureRect" parent="star_layout/auto_aligned/VBoxContainer/star_container/star_present/star"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -33.0
+offset_right = 36.0
+offset_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_co6js")
+expand_mode = 1
+
+[node name="spacer" type="Control" parent="star_layout/auto_aligned/VBoxContainer/star_container/star_present"]
+custom_minimum_size = Vector2(2.08165e-12, 24)
+layout_mode = 2
+
+[node name="title" type="Label" parent="star_layout/auto_aligned/VBoxContainer/star_container/star_present"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92549, 0.658824, 0, 1)
+theme_override_fonts/font = ExtResource("4_l7nwt")
+theme_override_font_sizes/font_size = 20
+text = "present"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="description" type="Label" parent="star_layout/auto_aligned/VBoxContainer/star_container/star_present"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.498039)
+theme_override_fonts/font = SubResource("FontVariation_bny8a")
+theme_override_font_sizes/font_size = 12
+text = "Explored the level"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="star_clean" type="VBoxContainer" parent="star_layout/auto_aligned/VBoxContainer/star_container"]
+custom_minimum_size = Vector2(126, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/separation = -4
+
+[node name="star" type="TextureRect" parent="star_layout/auto_aligned/VBoxContainer/star_container/star_clean"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture = ExtResource("2_1p71x")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="icon" type="TextureRect" parent="star_layout/auto_aligned/VBoxContainer/star_container/star_clean/star"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = -28.0
+offset_right = 28.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_q32gs")
+expand_mode = 1
+
+[node name="spacer" type="Control" parent="star_layout/auto_aligned/VBoxContainer/star_container/star_clean"]
+custom_minimum_size = Vector2(2.08165e-12, 24)
+layout_mode = 2
+
+[node name="title" type="Label" parent="star_layout/auto_aligned/VBoxContainer/star_container/star_clean"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92549, 0.658824, 0, 1)
+theme_override_fonts/font = ExtResource("4_l7nwt")
+theme_override_font_sizes/font_size = 20
+text = "clean"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="description" type="Label" parent="star_layout/auto_aligned/VBoxContainer/star_container/star_clean"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.498039)
+theme_override_fonts/font = SubResource("FontVariation_bny8a")
+theme_override_font_sizes/font_size = 12
+text = "Completed all
+level objectives"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="star_on_time" type="VBoxContainer" parent="star_layout/auto_aligned/VBoxContainer/star_container"]
+custom_minimum_size = Vector2(126, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/separation = -4
+
+[node name="star" type="TextureRect" parent="star_layout/auto_aligned/VBoxContainer/star_container/star_on_time"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture = ExtResource("2_1p71x")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="icon" type="TextureRect" parent="star_layout/auto_aligned/VBoxContainer/star_container/star_on_time/star"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = -28.0
+offset_right = 28.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_rsecc")
+expand_mode = 1
+
+[node name="spacer" type="Control" parent="star_layout/auto_aligned/VBoxContainer/star_container/star_on_time"]
+custom_minimum_size = Vector2(2.08165e-12, 24)
+layout_mode = 2
+
+[node name="title" type="Label" parent="star_layout/auto_aligned/VBoxContainer/star_container/star_on_time"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92549, 0.658824, 0, 1)
+theme_override_fonts/font = ExtResource("4_l7nwt")
+theme_override_font_sizes/font_size = 20
+text = "on time"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="description" type="Label" parent="star_layout/auto_aligned/VBoxContainer/star_container/star_on_time"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.498039)
+theme_override_fonts/font = SubResource("FontVariation_bny8a")
+theme_override_font_sizes/font_size = 12
+text = "Finished with
+time to spare"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="star_snoopy" type="VBoxContainer" parent="star_layout/auto_aligned/VBoxContainer/star_container"]
+custom_minimum_size = Vector2(126, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/separation = -4
+
+[node name="star" type="TextureRect" parent="star_layout/auto_aligned/VBoxContainer/star_container/star_snoopy"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture = ExtResource("2_1p71x")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="icon" type="TextureRect" parent="star_layout/auto_aligned/VBoxContainer/star_container/star_snoopy/star"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = -28.0
+offset_right = 28.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_k31re")
+expand_mode = 1
+
+[node name="spacer" type="Control" parent="star_layout/auto_aligned/VBoxContainer/star_container/star_snoopy"]
+custom_minimum_size = Vector2(2.08165e-12, 24)
+layout_mode = 2
+
+[node name="title" type="Label" parent="star_layout/auto_aligned/VBoxContainer/star_container/star_snoopy"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92549, 0.658824, 0, 1)
+theme_override_fonts/font = ExtResource("4_l7nwt")
+theme_override_font_sizes/font_size = 20
+text = "snoopy"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="description" type="Label" parent="star_layout/auto_aligned/VBoxContainer/star_container/star_snoopy"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.498039)
+theme_override_fonts/font = SubResource("FontVariation_bny8a")
+theme_override_font_sizes/font_size = 12
+text = "Discovered a
+secret room"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="star_snoopy2" type="VBoxContainer" parent="star_layout/auto_aligned/VBoxContainer/star_container"]
+modulate = Color(1, 1, 1, 0.5)
+custom_minimum_size = Vector2(126, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/separation = -4
+
+[node name="star" type="TextureRect" parent="star_layout/auto_aligned/VBoxContainer/star_container/star_snoopy2"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture = ExtResource("2_1p71x")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="icon" type="TextureRect" parent="star_layout/auto_aligned/VBoxContainer/star_container/star_snoopy2/star"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = -28.0
+offset_right = 28.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_k31re")
+expand_mode = 1
+
+[node name="spacer" type="Control" parent="star_layout/auto_aligned/VBoxContainer/star_container/star_snoopy2"]
+custom_minimum_size = Vector2(2.08165e-12, 24)
+layout_mode = 2
+
+[node name="title" type="Label" parent="star_layout/auto_aligned/VBoxContainer/star_container/star_snoopy2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92549, 0.658824, 0, 1)
+theme_override_fonts/font = ExtResource("4_l7nwt")
+theme_override_font_sizes/font_size = 20
+text = "snoopy"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="description" type="Label" parent="star_layout/auto_aligned/VBoxContainer/star_container/star_snoopy2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.498039)
+theme_override_fonts/font = SubResource("FontVariation_bny8a")
+theme_override_font_sizes/font_size = 12
+text = "Discovered a
+secret room"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="bottom_spacer" type="Control" parent="star_layout/auto_aligned/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 48)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="button_next" type="Button" parent="star_layout/auto_aligned/VBoxContainer"]
+custom_minimum_size = Vector2(143, 57)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.666667, 0.360784, 0.0941176, 1)
+theme_override_fonts/font = ExtResource("4_l7nwt")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_tcgw7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8n8n2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5c3sa")
+text = "NEXT"
+
+[node name="extra_buttons_container" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 91.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 35
+theme_override_constants/margin_right = 50
+
+[node name="button_menu" type="Button" parent="extra_buttons_container"]
+custom_minimum_size = Vector2(56, 56)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+icon = ExtResource("9_htlmb")
+flat = true
+expand_icon = true
+
+[node name="button_restart" type="Button" parent="extra_buttons_container"]
+custom_minimum_size = Vector2(56, 56)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+icon = ExtResource("10_dovn2")
+flat = true
+expand_icon = true

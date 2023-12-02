@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://dkhndruykmb6"]
+[gd_scene load_steps=12 format=3 uid="uid://dkhndruykmb6"]
 
 [ext_resource type="Texture2D" uid="uid://bsw6iemjcv3r2" path="res://graphics/360_F_356621844_02EwpDTxw9lOCA8B52cagLvT8j7zczbS.jpg" id="1_i44nt"]
+[ext_resource type="Script" path="res://scenes/levels/level_1.gd" id="1_m6vxu"]
 [ext_resource type="PackedScene" uid="uid://dx8rx7gnu3ppx" path="res://scenes/player/player.tscn" id="2_b57sj"]
 [ext_resource type="PackedScene" uid="uid://71c05ix0m481" path="res://scenes/enemies/enemy.tscn" id="3_1h6y6"]
 [ext_resource type="PackedScene" uid="uid://bkoc5gffcnvwg" path="res://scenes/cleanables/cleanable_object.tscn" id="4_lkt5i"]
@@ -20,6 +21,7 @@ sky = SubResource("Sky_2r34j")
 
 [node name="Level" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.80907, 0)
+script = ExtResource("1_m6vxu")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_0k5g3")
@@ -42,11 +44,6 @@ size = Vector3(49.2732, 26.8605, 2.85178)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.667, 0, 0)
 
 [node name="Enemies" type="Node" parent="."]
-
-[node name="Enemy" parent="Enemies" instance=ExtResource("3_1h6y6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.927, 2.957, 0.592)
-leftmost_patrol_point = 5
-rightmost_patrol_point = 15
 
 [node name="Enemy2" parent="Enemies" instance=ExtResource("3_1h6y6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 158.205, 5.914, 1.184)
@@ -89,18 +86,6 @@ leftmost_patrol_point = 5
 rightmost_patrol_point = 15
 
 [node name="Cleanables" type="Node" parent="."]
-
-[node name="CleanableObject" parent="Cleanables" instance=ExtResource("4_lkt5i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0611, 3.80907, 0)
-
-[node name="CleanableObject2" parent="Cleanables" instance=ExtResource("4_lkt5i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.3744, 14.7539, 0)
-
-[node name="CleanableObject3" parent="Cleanables" instance=ExtResource("4_lkt5i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.15259, 24.3607, 0)
-
-[node name="CleanableObject4" parent="Cleanables" instance=ExtResource("4_lkt5i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.20771, 38.3046, 0)
 
 [node name="CleanableObject5" parent="Cleanables" instance=ExtResource("4_lkt5i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98.5937, -0.087574, 0)

@@ -12,13 +12,18 @@ config_version=5
 
 config/name="Dust Busters"
 config/description="sponsored by chlorox"
-run/main_scene="res://scenes/levels/level.tscn"
+run/main_scene="res://scenes/game/game.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-InGameUIManager="*res://scenes/autoloads/in_game_ui_manager.gd"
+GlobalStatsManager="*res://scenes/autoloads/global_stats_manager.gd"
+
+[display]
+
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [dotnet]
 
