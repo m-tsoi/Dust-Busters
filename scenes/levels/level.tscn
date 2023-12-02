@@ -45,11 +45,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.667, 0, 0)
 
 [node name="Enemies" type="Node" parent="."]
 
-[node name="Enemy" parent="Enemies" instance=ExtResource("3_1h6y6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.927, 2.957, 0.592)
-leftmost_patrol_point = 5
-rightmost_patrol_point = 15
-
 [node name="Enemy2" parent="Enemies" instance=ExtResource("3_1h6y6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 158.205, 5.914, 1.184)
 leftmost_patrol_point = 5
@@ -91,18 +86,6 @@ leftmost_patrol_point = 5
 rightmost_patrol_point = 15
 
 [node name="Cleanables" type="Node" parent="."]
-
-[node name="CleanableObject" parent="Cleanables" instance=ExtResource("4_lkt5i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0611, 3.80907, 0)
-
-[node name="CleanableObject2" parent="Cleanables" instance=ExtResource("4_lkt5i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.3744, 14.7539, 0)
-
-[node name="CleanableObject3" parent="Cleanables" instance=ExtResource("4_lkt5i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.15259, 24.3607, 0)
-
-[node name="CleanableObject4" parent="Cleanables" instance=ExtResource("4_lkt5i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.20771, 38.3046, 0)
 
 [node name="CleanableObject5" parent="Cleanables" instance=ExtResource("4_lkt5i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98.5937, -0.087574, 0)
