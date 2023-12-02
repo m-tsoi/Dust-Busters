@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3lmtny0p6y2q"
-path="res://.godot/imported/stopwatch.png-b192d901dddb5bd55bc595ea64cf8278.ctex"
+uid="uid://cwda54eoo175a"
+path="res://.godot/imported/key.png-b95f67030ca03194547af82dba794bef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/user_interface/icons/stopwatch.png"
-dest_files=["res://.godot/imported/stopwatch.png-b192d901dddb5bd55bc595ea64cf8278.ctex"]
+source_file="res://assets/user_interface/win_lose_screen/icons/key.png"
+dest_files=["res://.godot/imported/key.png-b95f67030ca03194547af82dba794bef.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwaitsmpfquaq"
-path="res://.godot/imported/arrow_back.png-7ce0e493270b816c09f33ebe3cc64194.ctex"
+uid="uid://ci8y4jvxavfwx"
+path="res://.godot/imported/spray_bottle.png-c70a2abea05f42961ba1f98023794943.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/user_interface/icons/arrow_back.png"
-dest_files=["res://.godot/imported/arrow_back.png-7ce0e493270b816c09f33ebe3cc64194.ctex"]
+source_file="res://assets/user_interface/win_lose_screen/icons/spray_bottle.png"
+dest_files=["res://.godot/imported/spray_bottle.png-c70a2abea05f42961ba1f98023794943.ctex"]
 
 [params]
 

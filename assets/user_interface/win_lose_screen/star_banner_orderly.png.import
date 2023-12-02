@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b10d2f0j51vf7"
-path="res://.godot/imported/check_basic.png-084f301259afb4454922ccf896748a22.ctex"
+uid="uid://dqjxt67pyjumd"
+path="res://.godot/imported/star_banner_orderly.png-7e8cd9a5a2c064d950b4d11cd2d611a4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/user_interface/icons/check_basic.png"
-dest_files=["res://.godot/imported/check_basic.png-084f301259afb4454922ccf896748a22.ctex"]
+source_file="res://assets/user_interface/win_lose_screen/star_banner_orderly.png"
+dest_files=["res://.godot/imported/star_banner_orderly.png-7e8cd9a5a2c064d950b4d11cd2d611a4.ctex"]
 
 [params]
 
