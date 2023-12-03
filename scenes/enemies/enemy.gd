@@ -1,8 +1,10 @@
 extends CharacterBody3D
 
 var health := 10
-@export var leftmost_patrol_point: int = -10
-@export var rightmost_patrol_point: int = 10
+@export var leftmost_patrol_offset: int = 15
+@export var rightmost_patrol_offset: int = 15
+var leftmost_patrol_point: int
+var rightmost_patrol_point: int
 @export var cur_direction = "left"
 @export var JUMP_SPEEDS = Vector2(15.0, 30.0)
 @export var KNOCKBACK_SPEEDS = Vector2(20, 30)
@@ -13,6 +15,11 @@ signal killed
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+
+func _ready():
+	cur_direction = "left"
+	leftmost_patrol_point = global_position.x - leftmost_patrol_offset
+	rightmost_patrol_point = global_position.x + rightmost_patrol_offset
 
 func _process(delta):
 	# Free when health is 0
@@ -56,11 +63,6 @@ func _physics_process(delta):
 	elif is_on_floor():
 		velocity.x = 0
 	move_and_slide()
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	cur_direction = "left"
-	pass
 
 func _on_hurtbox_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
 	print("Area ", area_rid, " ", area, " entered enemy's hurtbox")
