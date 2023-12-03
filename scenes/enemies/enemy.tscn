@@ -51,7 +51,7 @@ stream = ExtResource("5_xu2ds")
 
 [node name="EnemyHurt" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("6_lbo4d")
-volume_db = 5.259
+volume_db = 3.0
 
 [node name="EnemyDeath" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("7_vj3oc")

@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://71c05ix0m481" path="res://scenes/enemies/enemy.tscn" id="3_1h6y6"]
 [ext_resource type="PackedScene" uid="uid://bkoc5gffcnvwg" path="res://scenes/cleanables/cleanable_object.tscn" id="4_lkt5i"]
 [ext_resource type="PackedScene" uid="uid://ckbuxsq418wvj" path="res://scenes/user_interface/in_game_ui.tscn" id="5_115o0"]
-[ext_resource type="AudioStream" uid="uid://bcwqmbri827tt" path="res://assets/music/janitorscloset.ogg" id="6_xvnnw"]
 [ext_resource type="PackedScene" uid="uid://834qqsvrodyo" path="res://assets/background/tutorialLevelPlusCollisions4.glb" id="7_62aa8"]
+[ext_resource type="AudioStream" uid="uid://bcwqmbri827tt" path="res://assets/music/janitorscloset.ogg" id="7_ggegp"]
 [ext_resource type="PackedScene" uid="uid://bhhxljfyf72t6" path="res://assets/background/tutorialLevelFlattened2.glb" id="9_46wup"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_cjywb"]
@@ -184,7 +184,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 650.808, 27.1068, 0)
 [node name="InGameUI" parent="." instance=ExtResource("5_115o0")]
 
 [node name="TestStageMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_xvnnw")
+stream = ExtResource("7_ggegp")
 autoplay = true
 
 [node name="tutorialLevelPlusCollisions4" parent="." instance=ExtResource("7_62aa8")]

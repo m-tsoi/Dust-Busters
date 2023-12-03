@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cjbjhjn6d8rpq"]
+[gd_scene load_steps=13 format=3 uid="uid://bd5r34bkdmt8x"]
 
 [ext_resource type="Script" path="res://scenes/user_interface/win_screen.gd" id="1_ir7gs"]
 [ext_resource type="FontFile" uid="uid://bdcfcmrscgb2a" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="1_sfk5w"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dqjxt67pyjumd" path="res://assets/user_interface/win_lose_screen/star_banner_orderly.png" id="4_xcmvo"]
 [ext_resource type="FontFile" uid="uid://drchphlc375ma" path="res://assets/fonts/mulish_variations/Mulish-ExtraBold.ttf" id="5_2418o"]
 [ext_resource type="Texture2D" uid="uid://cwaitsmpfquaq" path="res://assets/user_interface/win_lose_screen/icons/arrow_back.png" id="6_8ui5p"]
+[ext_resource type="AudioStream" uid="uid://uhhrfye4u33" path="res://assets/music/Dusted!.ogg" id="8_gqap5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cdemf"]
 bg_color = Color(0, 0, 0, 0.74902)
@@ -149,6 +150,11 @@ size_flags_vertical = 0
 icon = ExtResource("6_8ui5p")
 flat = true
 expand_icon = true
+
+[node name="Win" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_gqap5")
+volume_db = -8.0
+autoplay = true
 
 [connection signal="pressed" from="simple_layout/auto_aligned/VBoxContainer/button_replay" to="." method="_on_button_replay_pressed"]
 [connection signal="pressed" from="button_menu" to="." method="_on_button_menu_pressed"]
