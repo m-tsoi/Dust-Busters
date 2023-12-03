@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ckbuxsq418wvj" path="res://scenes/user_interface/in_game_ui.tscn" id="5_115o0"]
 [ext_resource type="AudioStream" uid="uid://bcwqmbri827tt" path="res://assets/music/janitorscloset.ogg" id="6_xvnnw"]
 [ext_resource type="PackedScene" uid="uid://834qqsvrodyo" path="res://assets/background/tutorialLevelPlusCollisions4.glb" id="7_62aa8"]
-[ext_resource type="PackedScene" uid="uid://ccqtsevb3e6a8" path="res://assets/background/tutorialLevelFlattened.glb" id="9_0ab5h"]
+[ext_resource type="PackedScene" uid="uid://bhhxljfyf72t6" path="res://assets/background/tutorialLevelFlattened2.glb" id="9_46wup"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_cjywb"]
 panorama = ExtResource("1_i44nt")
@@ -127,5 +127,5 @@ autoplay = true
 [node name="tutorialLevelPlusCollisions4" parent="." instance=ExtResource("7_62aa8")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 90.5607, -9.42826, 0.52355)
 
-[node name="tutorialLevelFlattened" parent="." instance=ExtResource("9_0ab5h")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 439.474, -8.13641, 5.5339)
+[node name="tutorialLevelFlattened2" parent="." instance=ExtResource("9_46wup")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 447.138, -8.77271, 4.54266)
