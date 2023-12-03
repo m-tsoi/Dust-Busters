@@ -154,7 +154,7 @@ expand_icon = true
 
 [node name="GameOver" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_y8gkd")
-volume_db = -4.0
+volume_db = -6.0
 autoplay = true
 
 [connection signal="pressed" from="simple_layout/auto_aligned/VBoxContainer/button_reset" to="." method="_on_button_next_pressed"]

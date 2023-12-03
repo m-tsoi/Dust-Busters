@@ -153,7 +153,8 @@ expand_icon = true
 
 [node name="Win" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_gqap5")
-volume_db = -4.0
+volume_db = -8.0
+autoplay = true
 
 [connection signal="pressed" from="simple_layout/auto_aligned/VBoxContainer/button_replay" to="." method="_on_button_replay_pressed"]
 [connection signal="pressed" from="button_menu" to="." method="_on_button_menu_pressed"]

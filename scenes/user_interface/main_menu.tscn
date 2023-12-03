@@ -115,7 +115,7 @@ flat = true
 
 [node name="TitleTheme" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_q4377")
-volume_db = -5.0
+volume_db = -8.0
 autoplay = true
 
 [connection signal="pressed" from="TextureRect/PlayButton" to="." method="_on_play_button_pressed"]
