@@ -488,38 +488,29 @@ size = Vector2i(2000, 1700)
 position = Vector2(956, 790)
 
 [node name="RightEarSprite" type="Sprite2D" parent="DustSheepViewport/DustSheepSkeleton"]
-position = Vector2(-661.106, -176.516)
-rotation = 0.0242328
-scale = Vector2(1, 1)
+position = Vector2(-769, -177)
 texture = ExtResource("2_g6hbb")
 
 [node name="FrontRightLegSpirte" type="Sprite2D" parent="DustSheepViewport/DustSheepSkeleton"]
-position = Vector2(-330.435, 402.115)
-rotation = 0.0976274
-scale = Vector2(1, 1)
+position = Vector2(-364, 436)
 texture = ExtResource("3_ig2h4")
 
 [node name="FrontLeftLegSprite" type="Sprite2D" parent="DustSheepViewport/DustSheepSkeleton"]
-position = Vector2(-49.0273, 612.475)
-rotation = 0.159852
+position = Vector2(-47, 678)
 texture = ExtResource("4_7dbeu")
 
 [node name="BackRightLegSprite" type="Sprite2D" parent="DustSheepViewport/DustSheepSkeleton"]
-position = Vector2(311.183, 453.02)
-rotation = -0.126183
-scale = Vector2(1, 1)
+position = Vector2(318, 480)
 texture = ExtResource("5_i600t")
 
 [node name="BackLeftLegSprite" type="Sprite2D" parent="DustSheepViewport/DustSheepSkeleton"]
-position = Vector2(606.746, 358.081)
-rotation = -0.103004
+position = Vector2(636.311, 376.105)
+rotation = -0.307943
 scale = Vector2(1, 1)
 texture = ExtResource("6_6d8a6")
 
 [node name="TailSprite" type="Sprite2D" parent="DustSheepViewport/DustSheepSkeleton"]
-position = Vector2(737.5, -27.3717)
-rotation = -0.0618519
-scale = Vector2(1, 1)
+position = Vector2(835, -35)
 texture = ExtResource("7_20b0k")
 
 [node name="BodyBone" type="Bone2D" parent="DustSheepViewport/DustSheepSkeleton"]
@@ -532,7 +523,6 @@ texture = ExtResource("8_r33ps")
 
 [node name="HeadBone" type="Bone2D" parent="DustSheepViewport/DustSheepSkeleton/BodyBone"]
 position = Vector2(-483, -17)
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, -483, -17)
 
 [node name="HeadSprite" type="Sprite2D" parent="DustSheepViewport/DustSheepSkeleton/BodyBone/HeadBone"]
@@ -556,7 +546,6 @@ texture = ExtResource("10_a8sgk")
 
 [node name="FrontRightLegBone" type="Bone2D" parent="DustSheepViewport/DustSheepSkeleton/BodyBone"]
 position = Vector2(-332, 393)
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, -295, 354)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="DustSheepViewport/DustSheepSkeleton/BodyBone/FrontRightLegBone"]
@@ -573,7 +562,6 @@ remote_path = NodePath("../../../FrontLeftLegSprite")
 
 [node name="BackRightLegBone" type="Bone2D" parent="DustSheepViewport/DustSheepSkeleton/BodyBone"]
 position = Vector2(302, 440)
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 291, 406)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="DustSheepViewport/DustSheepSkeleton/BodyBone/BackRightLegBone"]
@@ -592,7 +580,6 @@ remote_path = NodePath("../../../BackLeftLegSprite")
 
 [node name="TailBone" type="Bone2D" parent="DustSheepViewport/DustSheepSkeleton/BodyBone"]
 position = Vector2(731, -36)
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 634, -31)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="DustSheepViewport/DustSheepSkeleton/BodyBone/TailBone"]

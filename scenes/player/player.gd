@@ -11,7 +11,7 @@ var basic_attack_hitbox: Node
 var is_attacking: bool = false
 var enemies_touching: int = 0
 var invulnerable: bool = false
-var is_facing_left: bool = true
+var is_facing_left: bool = false
 var knockback: Vector3
 
 @onready var animation = $AnimationPlayer
@@ -21,7 +21,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("basic_attack") and not is_attacking:
 		is_attacking = true
 		$PlayerAttack.play()
-		#animation.play("Basic_Attck")
+		animation.play("Basic_Attck")
 		basic_attack_hitbox = hitbox_scene.instantiate()
 		basic_attack_hitbox.add_to_group("player_basic_attack")
 		add_child(basic_attack_hitbox)
@@ -31,6 +31,8 @@ func _process(delta):
 		timer.one_shot = true
 		timer.start()
 		timer.connect("timeout", _on_basic_attack_hitbox_timer_timeout)
+	
+	animation.play("Walk")
 	
 	# Take damage from enemy
 	if enemies_touching > 0:
@@ -107,7 +109,6 @@ func _physics_process(delta):
 	var input_dir = Input.get_vector("move_left", "move_right", "ui_up", "ui_down")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
-		animation.play("Walk")
 		velocity.x = direction.x * current_speed
 	else:
 		animation.play("Idle")

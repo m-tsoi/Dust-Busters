@@ -20,7 +20,6 @@ func _process(delta):
 		self.queue_free()
 
 func _physics_process(delta):
-	animation.play("Walk")
 	# Add the gravity
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -59,6 +58,7 @@ func _physics_process(delta):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	animation.play("Walk")
 	cur_direction = "left"
 	pass
 

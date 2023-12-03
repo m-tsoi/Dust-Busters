@@ -1208,24 +1208,24 @@ position = Vector2(1476, 1623)
 modification_stack = SubResource("SkeletonModificationStack2D_x6krl")
 
 [node name="HairBackSprite" type="Sprite2D" parent="PlayerViewport/PlayerSkeleton"]
-position = Vector2(-750.742, -997.215)
-rotation = 0.000705252
-scale = Vector2(0.999503, 0.999524)
-skew = -0.000116706
+position = Vector2(-724.124, -1001.74)
+rotation = -0.0751203
+scale = Vector2(0.999499, 0.999528)
+skew = -0.000114083
 texture = ExtResource("2_l5v0q")
 
 [node name="HeadBandSprite" type="Sprite2D" parent="PlayerViewport/PlayerSkeleton"]
-position = Vector2(-852.816, -809.326)
-rotation = 0.0453448
-scale = Vector2(0.99951, 0.999516)
-skew = -0.000115395
+position = Vector2(-828.964, -826.736)
+rotation = -0.0737723
+scale = Vector2(0.999503, 0.999522)
+skew = -0.000111818
 texture = ExtResource("3_40r3l")
 
 [node name="UpperLeftArmSprite" type="Sprite2D" parent="PlayerViewport/PlayerSkeleton"]
-position = Vector2(-518.026, -687.169)
-rotation = -0.0943122
-scale = Vector2(0.999645, 0.999687)
-skew = -0.000227928
+position = Vector2(-518.026, -699.954)
+rotation = -0.00732362
+scale = Vector2(0.99965, 0.999681)
+skew = -0.000231028
 texture = ExtResource("4_fjxxu")
 centered = false
 offset = Vector2(-96, -62)
@@ -1238,16 +1238,16 @@ skew = -0.000272393
 texture = ExtResource("5_4tivy")
 
 [node name="UpperLeftLegSprite" type="Sprite2D" parent="PlayerViewport/PlayerSkeleton"]
-position = Vector2(-476.187, -308.096)
-rotation = -0.106685
-scale = Vector2(0.99966, 0.999681)
-skew = -0.000386238
+position = Vector2(-483.269, -318.341)
+rotation = 0.0490167
+scale = Vector2(0.999669, 0.999672)
+skew = -0.000391006
 texture = ExtResource("6_gyu7r")
 
 [node name="LowerLeftLegSprite" type="Sprite2D" parent="PlayerViewport/PlayerSkeleton/UpperLeftLegSprite"]
-position = Vector2(53.0308, 364.661)
-rotation = 0.112937
-scale = Vector2(0.999817, 0.999827)
+position = Vector2(105.435, 354.57)
+rotation = -0.0570094
+scale = Vector2(0.999817, 0.999826)
 skew = -0.000223994
 texture = ExtResource("7_dxbyk")
 
