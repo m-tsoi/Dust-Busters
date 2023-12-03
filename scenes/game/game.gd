@@ -12,6 +12,7 @@ var default_health = GlobalStatsManager.player_health
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
 	main_menu_scene.connect("play_level", receive_play_level)
 	current_level.connect("lost", receive_lost)
 	current_level.connect("won", receive_won)
