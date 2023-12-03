@@ -13,6 +13,7 @@ size = Vector3(0.921112, 1, 1)
 
 [node name="Enemy" type="CharacterBody3D" groups=["enemies"]]
 collision_layer = 4
+collision_mask = 9
 script = ExtResource("1_vbh3x")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
