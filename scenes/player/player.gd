@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 
-const SPEED = 20.0 * 1.5
+const SPEED = 20.0 * 1.6
 const JUMP_VELOCITY = 56
 
 var hitbox_scene: PackedScene = preload("res://scenes/player/player_hitbox.tscn")
@@ -98,7 +98,7 @@ func _physics_process(delta):
 	var current_speed = SPEED
 	if not is_on_floor() and velocity.y > -100:
 		velocity.y -= gravity * delta
-		current_speed = current_speed / 1.1
+		current_speed = current_speed
 
 	# Handle Jump.
 	if Input.is_action_pressed("jump") and is_on_floor():
