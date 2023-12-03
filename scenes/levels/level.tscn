@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dkhndruykmb6"]
+[gd_scene load_steps=14 format=3 uid="uid://dkhndruykmb6"]
 
 [ext_resource type="Texture2D" uid="uid://bsw6iemjcv3r2" path="res://graphics/360_F_356621844_02EwpDTxw9lOCA8B52cagLvT8j7zczbS.jpg" id="1_i44nt"]
 [ext_resource type="Script" path="res://scenes/levels/level_1.gd" id="1_m6vxu"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://71c05ix0m481" path="res://scenes/enemies/enemy.tscn" id="3_1h6y6"]
 [ext_resource type="PackedScene" uid="uid://bkoc5gffcnvwg" path="res://scenes/cleanables/cleanable_object.tscn" id="4_lkt5i"]
 [ext_resource type="PackedScene" uid="uid://ckbuxsq418wvj" path="res://scenes/user_interface/in_game_ui.tscn" id="5_115o0"]
+[ext_resource type="PackedScene" uid="uid://bciirvcvaslkm" path="res://scenes/cleanables/cleanable_puddle.tscn" id="6_k0tjx"]
 [ext_resource type="PackedScene" uid="uid://834qqsvrodyo" path="res://assets/background/tutorialLevelPlusCollisions4.glb" id="7_62aa8"]
 [ext_resource type="AudioStream" uid="uid://bcwqmbri827tt" path="res://assets/music/janitorscloset.ogg" id="7_ggegp"]
 [ext_resource type="PackedScene" uid="uid://bhhxljfyf72t6" path="res://assets/background/tutorialLevelFlattened2.glb" id="9_46wup"]
@@ -180,6 +181,33 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 560.378, 51.8312, 0)
 
 [node name="CleanableObject26" parent="Cleanables" instance=ExtResource("4_lkt5i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 650.808, 27.1068, 0)
+
+[node name="Puddle" parent="Cleanables" instance=ExtResource("6_k0tjx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 536.077, 21.111, 0)
+
+[node name="Puddle2" parent="Cleanables" instance=ExtResource("6_k0tjx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 526.667, 21.111, 0)
+
+[node name="Puddle3" parent="Cleanables" instance=ExtResource("6_k0tjx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 499.752, 21.111, 0)
+
+[node name="Puddle4" parent="Cleanables" instance=ExtResource("6_k0tjx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 455.804, 21.111, 0)
+
+[node name="Puddle5" parent="Cleanables" instance=ExtResource("6_k0tjx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 465.496, 21.111, 0)
+
+[node name="Puddle6" parent="Cleanables" instance=ExtResource("6_k0tjx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 474.169, 21.111, 0)
+
+[node name="Puddle7" parent="Cleanables" instance=ExtResource("6_k0tjx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 535.585, 37.709, 0)
+
+[node name="Puddle8" parent="Cleanables" instance=ExtResource("6_k0tjx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 652.185, -3.15057, 0)
+
+[node name="Puddle9" parent="Cleanables" instance=ExtResource("6_k0tjx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 631.086, 36.8952, 0)
 
 [node name="InGameUI" parent="." instance=ExtResource("5_115o0")]
 

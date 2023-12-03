@@ -6,7 +6,7 @@ var enemies_killed := 0
 var max_trash_count := 0
 var trash_cleaned := 0
 var max_puddle_count := 0
-var puddles_cleaned := 0
+var puddles_mopped := 0
 
 signal stats_changed
 		
@@ -35,7 +35,7 @@ func set_max_puddle_count(value: int):
 	max_puddle_count = value
 	stats_changed.emit()
 
-func set_puddles_cleaned(value: int):
-	puddles_cleaned = value
+func set_puddles_mopped(value: int):
+	puddles_mopped = value
 	stats_changed.emit()
 

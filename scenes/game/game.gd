@@ -31,7 +31,7 @@ func reset_autoload():
 	GlobalStatsManager.set_player_health(default_health)
 	GlobalStatsManager.set_enemies_killed(0)
 	GlobalStatsManager.set_trash_cleaned(0)
-	GlobalStatsManager.set_puddles_cleaned(0)
+	GlobalStatsManager.set_puddles_mopped(0)
 
 func receive_play_level():
 	current_level = level1.instantiate()

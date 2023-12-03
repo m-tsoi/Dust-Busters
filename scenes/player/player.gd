@@ -52,7 +52,7 @@ func _process(delta):
 			health -= 4
 			GlobalStatsManager.set_player_health(health)
 			$PlayerHurt.play()
-			print("Player health: ", health)
+			#print("Player health: ", health)
 			if (health <= 0):
 				$PlayerDeath.play()
 				died.emit()
@@ -68,28 +68,29 @@ func _process(delta):
 		$Sprite3D.flip_h = true
 
 func _on_basic_attack_hitbox_timer_timeout() -> void:
-	print("Timer timeouted")
+	#print("Timer timeouted")
 	basic_attack_hitbox.queue_free()
 	is_attacking = false
 
 func _on_invuln_timer_timeout() -> void:
-	print("Invuln timer timeouted")
+	#print("Invuln timer timeouted")
 	invulnerable = false
 
 func _on_hurtbox_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
 	var raw_knockback = self.global_position.direction_to(area.global_position)
 	if raw_knockback.x > 0 and not invulnerable:
-		print("Knockback to the left")
+		#print("Knockback to the left")
 		knockback = Vector3(-45, 5, 0)
 	elif raw_knockback.x <= 0 and not invulnerable:
-		print("Knockback to the right")
+		#print("Knockback to the right")
 		knockback = Vector3(45, 5, 0)
 		
 	enemies_touching += 1
 	print("Area ", area_rid, " ", area, " entered player's hurtbox")
 
 func _on_hurtbox_area_shape_exited(area_rid, area, area_shape_index, local_shape_index):
-	enemies_touching -= 1
+	if enemies_touching > 0:
+		enemies_touching -= 1
 	print("Area ", area_rid, " ", area, " left player's hurtbox")
 
 

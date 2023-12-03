@@ -45,7 +45,7 @@ func update_health():
 func update_tasklist():
 	var enemy_task = "enemies " + str(GlobalStatsManager.enemies_killed) + " / " + str(GlobalStatsManager.max_enemy_count)
 	var trashbag_task = "trashbags " + str(GlobalStatsManager.trash_cleaned) + " / " + str(GlobalStatsManager.max_trash_count)
-	var puddle_task = "puddles " + str(GlobalStatsManager.puddles_cleaned) + " / " + str(GlobalStatsManager.max_puddle_count)
+	var puddle_task = "puddles " + str(GlobalStatsManager.puddles_mopped) + " / " + str(GlobalStatsManager.max_puddle_count)
 	tasklist_node.set_item_text(0, enemy_task)
 	tasklist_node.set_item_text(1, trashbag_task)
 	tasklist_node.set_item_text(2, puddle_task)

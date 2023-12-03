@@ -9,7 +9,7 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_12rri"]
 
-[node name="Puddle" type="StaticBody3D"]
+[node name="Puddle" type="StaticBody3D" groups=["puddle"]]
 script = ExtResource("1_leymj")
 
 [node name="puddle" parent="." instance=ExtResource("1_via40")]
