@@ -10,6 +10,7 @@ var bar_low_hp = preload("res://assets/user_interface/hp_bar/barHorizontal_red_p
 @onready var healthbar = $Control/MarginContainer/HealthBar
 @onready var tasklist_node = $Control2/ItemList
 
+signal main_menu_button_pressed
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -49,3 +50,7 @@ func update_tasklist():
 	tasklist_node.set_item_text(0, enemy_task)
 	tasklist_node.set_item_text(1, trashbag_task)
 	tasklist_node.set_item_text(2, puddle_task)
+
+
+func _on_menu_button_pressed():
+	main_menu_button_pressed.emit()
