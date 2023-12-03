@@ -1,10 +1,10 @@
 extends StaticBody3D
 
-signal cleaned
+signal mopped
 
 # Deletes object when hit by player's basic attack
 func _on_hurtbox_area_entered(area):
 	if area.is_in_group("player_basic_attack"):
 		print("Puddle object hit by normal attack")
-		cleaned.emit()
+		mopped.emit()
 		self.queue_free()

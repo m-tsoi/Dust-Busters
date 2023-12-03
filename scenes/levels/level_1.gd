@@ -19,8 +19,11 @@ func _ready():
 	for trash in trash_list:
 		trash.connect("cleaned", _on_trash_cleaned)
 	
-	var init_puddle_count := get_tree().get_nodes_in_group("puddle").size()
+	var puddle_list := get_tree().get_nodes_in_group("puddle")
+	var init_puddle_count := puddle_list.size()
 	GlobalStatsManager.set_max_puddle_count(init_puddle_count)
+	for puddle in puddle_list:
+		puddle.connect("mopped", _on_puddle_mopped)
 	# TODO: connect signals from puddle objects
 
 func _process(delta):
@@ -36,9 +39,12 @@ func _on_enemy_killed():
 func _on_trash_cleaned():
 	GlobalStatsManager.set_trash_cleaned(GlobalStatsManager.trash_cleaned + 1)
 	
+func _on_puddle_mopped():
+	GlobalStatsManager.set_puddles_mopped(GlobalStatsManager.puddles_mopped + 1)
+	
 func check_winning_conditions():
 	if (GlobalStatsManager.enemies_killed >= GlobalStatsManager.max_enemy_count
 		&& GlobalStatsManager.trash_cleaned >= GlobalStatsManager.max_trash_count
-		&& GlobalStatsManager.puddles_cleaned >= GlobalStatsManager.max_puddle_count):
+		&& GlobalStatsManager.puddles_mopped >= GlobalStatsManager.max_puddle_count):
 			print("WON!!!")
 			won.emit()
