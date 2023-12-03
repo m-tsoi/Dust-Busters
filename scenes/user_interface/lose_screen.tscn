@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://0054va0v5p2c"]
+[gd_scene load_steps=13 format=3 uid="uid://cakt25pc4d8ql"]
 
 [ext_resource type="Script" path="res://scenes/user_interface/lose_screen.gd" id="1_6psgc"]
 [ext_resource type="FontFile" uid="uid://bdcfcmrscgb2a" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="2_ogjro"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ci8y4jvxavfwx" path="res://assets/user_interface/win_lose_screen/icons/spray_bottle.png" id="5_eyp8p"]
 [ext_resource type="FontFile" uid="uid://drchphlc375ma" path="res://assets/fonts/mulish_variations/Mulish-ExtraBold.ttf" id="5_k45di"]
 [ext_resource type="Texture2D" uid="uid://bmah8u3qnc0fb" path="res://assets/user_interface/win_lose_screen/star_banner_ruined.png" id="6_1olxb"]
+[ext_resource type="AudioStream" uid="uid://cfv71ce7nqgjx" path="res://assets/music/gameover.ogg" id="8_y8gkd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_occli"]
 bg_color = Color(0, 0, 0, 0.74902)
@@ -150,6 +151,11 @@ size_flags_vertical = 0
 icon = ExtResource("4_mhoyq")
 flat = true
 expand_icon = true
+
+[node name="GameOver" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_y8gkd")
+volume_db = -4.0
+autoplay = true
 
 [connection signal="pressed" from="simple_layout/auto_aligned/VBoxContainer/button_reset" to="." method="_on_button_next_pressed"]
 [connection signal="pressed" from="button_menu" to="." method="_on_button_menu_pressed"]
