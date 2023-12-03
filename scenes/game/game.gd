@@ -16,6 +16,7 @@ func _ready():
 	main_menu_scene.connect("play_level", receive_play_level)
 	current_level.connect("lost", receive_lost)
 	current_level.connect("won", receive_won)
+	current_level.connect("menu_button_pressed", receive_menu_button_pressed)
 	lose_scene.connect("lose_retry_pressed", receive_lose_retry_pressed)
 	lose_scene.connect("lose_back_pressed", receive_lose_back_pressed)
 	win_scene.connect("won_back_pressed", receive_win_back_pressed)
@@ -37,6 +38,7 @@ func receive_play_level():
 	current_level = level1.instantiate()
 	current_level.connect("lost", receive_lost)
 	current_level.connect("won", receive_won)
+	current_level.connect("menu_button_pressed", receive_menu_button_pressed)
 	remove_child(main_menu_scene)
 	add_child(current_level)
 	
@@ -55,6 +57,7 @@ func receive_lose_retry_pressed():
 	current_level = level1.instantiate()
 	current_level.connect("lost", receive_lost)
 	current_level.connect("won", receive_won)
+	current_level.connect("menu_button_pressed", receive_menu_button_pressed)
 	remove_child(lose_scene)
 	add_child(current_level)
 
@@ -89,8 +92,15 @@ func receive_win_restart_pressed():
 	current_level = level1.instantiate()
 	current_level.connect("lost", receive_lost)
 	current_level.connect("won", receive_won)
+	current_level.connect("menu_button_pressed", receive_menu_button_pressed)
 	remove_child(win_scene)
 	add_child(current_level)
 	
 func receive_win_next_pressed():
 	print("Next scene pressed, but we only have 1 level")
+
+func receive_menu_button_pressed():
+	remove_child(current_level)
+	current_level.queue_free()
+	reset_autoload()
+	add_child(main_menu_scene)

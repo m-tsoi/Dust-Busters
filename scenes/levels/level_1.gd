@@ -2,6 +2,7 @@ extends Node3D
 
 signal won
 signal lost
+signal menu_button_pressed
 
 func _ready():
 	var player_node := $CharacterBody3D
@@ -48,3 +49,7 @@ func check_winning_conditions():
 		&& GlobalStatsManager.puddles_mopped >= GlobalStatsManager.max_puddle_count):
 			print("WON!!!")
 			won.emit()
+
+
+func _on_in_game_ui_main_menu_button_pressed():
+	menu_button_pressed.emit()
