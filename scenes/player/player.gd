@@ -49,7 +49,7 @@ func _process(delta):
 			invuln_timer.start()
 			invuln_timer.connect("timeout", _on_invuln_timer_timeout)
 			var health = GlobalStatsManager.player_health
-			health -= 1
+			health -= 4
 			GlobalStatsManager.set_player_health(health)
 			$PlayerHurt.play()
 			print("Player health: ", health)

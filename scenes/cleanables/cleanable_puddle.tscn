@@ -29,6 +29,9 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 shape = SubResource("BoxShape3D_7mco4")
 
 [node name="Hitbox" type="Area3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+collision_layer = 32
+collision_mask = 0
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Hitbox"]
 shape = SubResource("BoxShape3D_12rri")
