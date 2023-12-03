@@ -1,6 +1,6 @@
 extends Node
 
-var player_health := 5
+var player_health := 100
 var max_enemy_count := 0
 var enemies_killed := 0
 var max_trash_count := 0
