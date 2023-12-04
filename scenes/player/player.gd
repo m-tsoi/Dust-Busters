@@ -14,6 +14,13 @@ var invulnerable: bool = false
 var is_facing_left: bool = true
 var knockback: Vector3
 
+var dash_hitbox: Node
+var is_dashing: bool = false
+var can_dash: bool = true
+const dash_speed = 15.0 * 4
+const dash_duration = 0.3
+const dash_delay = 1
+
 func _process(delta):
 	# Basic attack
 	if Input.is_action_just_pressed("basic_attack") and not is_attacking:
@@ -34,6 +41,20 @@ func _process(delta):
 		timer.one_shot = true
 		timer.start()
 		timer.connect("timeout", _on_basic_attack_hitbox_timer_timeout)
+	
+	if Input.is_action_just_pressed("special_attack") && can_dash && !is_attacking && !is_dashing:
+		dash_hitbox = hitbox_scene.instantiate()
+		dash_hitbox.add_to_group("player_basic_attack")
+		invulnerable = true
+		if is_facing_left == true:
+			dash_hitbox.add_to_group("left_hitbox")
+			dash_hitbox.position = Vector3(-3,0,0)
+		else:
+			dash_hitbox.add_to_group("right_hitbox")
+			dash_hitbox.position = Vector3(3,0,0)
+		add_child(dash_hitbox)
+		_start_dash()
+		
 	
 	# Take damage from enemy
 	if enemies_touching > 0:
@@ -90,11 +111,32 @@ func _on_hurtbox_area_shape_exited(area_rid, area, area_shape_index, local_shape
 	enemies_touching -= 1
 	print("Area ", area_rid, " ", area, " left player's hurtbox")
 
+func _start_dash():
+	print("dash started")
+	is_attacking = true
+	is_dashing = true
+	var dash_timer = Timer.new()
+	add_child(dash_timer)
+	dash_timer.wait_time = dash_duration
+	print("timer started")
+	dash_timer.one_shot = true
+	dash_timer.start()
+	dash_timer.connect("timeout", _end_dash)
+	
+func _end_dash():
+	is_attacking = false
+	is_dashing = false
+	can_dash = false
+	invulnerable = false
+	dash_hitbox.queue_free()
+	await get_tree().create_timer(dash_delay).timeout
+	print("dash ended")
+	can_dash = true
 
 func _physics_process(delta):
 	# Add the gravity.
-	var current_speed = SPEED
-	if not is_on_floor() and velocity.y > -100:
+	var current_speed = dash_speed if is_dashing else SPEED
+	if not is_on_floor() and not is_dashing and velocity.y > -100:
 		velocity.y -= gravity * delta
 		current_speed = current_speed / 1.5
 
