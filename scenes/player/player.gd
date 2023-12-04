@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 
-const SPEED = 15.0 * 1.5
+const SPEED = 20.0 * 1.6
 const JUMP_VELOCITY = 56
 
 var hitbox_scene: PackedScene = preload("res://scenes/player/player_hitbox.tscn")
@@ -14,12 +14,7 @@ var invulnerable: bool = false
 var is_facing_left: bool = true
 var knockback: Vector3
 
-var dash_hitbox: Node
-var is_dashing: bool = false
-var can_dash: bool = true
-const dash_speed = 15.0 * 4
-const dash_duration = 0.3
-const dash_delay = 1
+signal died
 
 func _process(delta):
 	# Basic attack
@@ -37,24 +32,10 @@ func _process(delta):
 		add_child(basic_attack_hitbox)
 		var timer := Timer.new()
 		add_child(timer)
-		timer.wait_time = 0.5
+		timer.wait_time = 0.2
 		timer.one_shot = true
 		timer.start()
 		timer.connect("timeout", _on_basic_attack_hitbox_timer_timeout)
-	
-	if Input.is_action_just_pressed("special_attack") && can_dash && !is_attacking && !is_dashing:
-		dash_hitbox = hitbox_scene.instantiate()
-		dash_hitbox.add_to_group("player_basic_attack")
-		invulnerable = true
-		if is_facing_left == true:
-			dash_hitbox.add_to_group("left_hitbox")
-			dash_hitbox.position = Vector3(-3,0,0)
-		else:
-			dash_hitbox.add_to_group("right_hitbox")
-			dash_hitbox.position = Vector3(3,0,0)
-		add_child(dash_hitbox)
-		_start_dash()
-		
 	
 	# Take damage from enemy
 	if enemies_touching > 0:
@@ -63,18 +44,18 @@ func _process(delta):
 			invulnerable = true
 			var invuln_timer := Timer.new()
 			add_child(invuln_timer)
-			invuln_timer.wait_time = 1
+			invuln_timer.wait_time = 0.4
 			invuln_timer.one_shot = true
 			invuln_timer.start()
 			invuln_timer.connect("timeout", _on_invuln_timer_timeout)
-			var health = InGameUIManager.get_player_health()
-			health -= 1
-			InGameUIManager.set_player_health(health)
+			var health = GlobalStatsManager.player_health
+			health -= 4
+			GlobalStatsManager.set_player_health(health)
 			$PlayerHurt.play()
-			print("Player health: ", health)
+			#print("Player health: ", health)
 			if (health <= 0):
-				print("[Unimplemented] Player died")
 				$PlayerDeath.play()
+				died.emit()
 		elif (invulnerable):
 			pass
 	
@@ -87,58 +68,38 @@ func _process(delta):
 		$Sprite3D.flip_h = true
 
 func _on_basic_attack_hitbox_timer_timeout() -> void:
-	print("Timer timeouted")
+	#print("Timer timeouted")
 	basic_attack_hitbox.queue_free()
 	is_attacking = false
 
 func _on_invuln_timer_timeout() -> void:
-	print("Invuln timer timeouted")
+	#print("Invuln timer timeouted")
 	invulnerable = false
 
 func _on_hurtbox_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
-	var raw_knockback = self.global_position.direction_to(area.global_position) * 20
-	if raw_knockback.x > 0:
-		print("Knockback to the left")
+	var raw_knockback = self.global_position.direction_to(area.global_position)
+	if raw_knockback.x > 0 and not invulnerable:
+		#print("Knockback to the left")
 		knockback = Vector3(-45, 5, 0)
-	elif raw_knockback.x < 0:
-		print("Knockback to the right")
+	elif raw_knockback.x <= 0 and not invulnerable:
+		#print("Knockback to the right")
 		knockback = Vector3(45, 5, 0)
 		
 	enemies_touching += 1
 	print("Area ", area_rid, " ", area, " entered player's hurtbox")
 
 func _on_hurtbox_area_shape_exited(area_rid, area, area_shape_index, local_shape_index):
-	enemies_touching -= 1
+	if enemies_touching > 0:
+		enemies_touching -= 1
 	print("Area ", area_rid, " ", area, " left player's hurtbox")
 
-func _start_dash():
-	print("dash started")
-	is_attacking = true
-	is_dashing = true
-	var dash_timer = Timer.new()
-	add_child(dash_timer)
-	dash_timer.wait_time = dash_duration
-	print("timer started")
-	dash_timer.one_shot = true
-	dash_timer.start()
-	dash_timer.connect("timeout", _end_dash)
-	
-func _end_dash():
-	is_attacking = false
-	is_dashing = false
-	can_dash = false
-	invulnerable = false
-	dash_hitbox.queue_free()
-	await get_tree().create_timer(dash_delay).timeout
-	print("dash ended")
-	can_dash = true
 
 func _physics_process(delta):
 	# Add the gravity.
-	var current_speed = dash_speed if is_dashing else SPEED
-	if not is_on_floor() and not is_dashing and velocity.y > -100:
+	var current_speed = SPEED
+	if not is_on_floor() and velocity.y > -100:
 		velocity.y -= gravity * delta
-		current_speed = current_speed / 1.5
+		current_speed = current_speed
 
 	# Handle Jump.
 	if Input.is_action_pressed("jump") and is_on_floor():

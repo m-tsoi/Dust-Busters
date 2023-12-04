@@ -11,8 +11,9 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_c504w"]
 size = Vector3(0.921112, 1, 1)
 
-[node name="Enemy" type="CharacterBody3D"]
+[node name="Enemy" type="CharacterBody3D" groups=["enemies"]]
 collision_layer = 4
+collision_mask = 9
 script = ExtResource("1_vbh3x")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -41,22 +42,22 @@ collision_mask = 0
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 shape = SubResource("BoxShape3D_c504w")
 
-[node name="EnemyJump" type="AudioStreamPlayer" parent="."]
+[node name="EnemyJump" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("4_t6ome")
-volume_db = -6.558
 pitch_scale = 1.59
 
-[node name="EnemyLand" type="AudioStreamPlayer" parent="."]
+[node name="EnemyLand" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("5_xu2ds")
 
-[node name="EnemyHurt" type="AudioStreamPlayer" parent="."]
+[node name="EnemyHurt" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("6_lbo4d")
-volume_db = -7.495
+volume_db = 3.0
 
-[node name="EnemyDeath" type="AudioStreamPlayer" parent="."]
+[node name="EnemyDeath" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("7_vj3oc")
+volume_db = 12.754
 
-[node name="SheepBaa" type="AudioStreamPlayer" parent="."]
+[node name="SheepBaa" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_m43vc")
 
 [connection signal="area_shape_entered" from="Hurtbox" to="." method="_on_hurtbox_area_shape_entered"]

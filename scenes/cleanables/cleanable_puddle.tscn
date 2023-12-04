@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://bciirvcvaslkm"]
+
+[ext_resource type="Script" path="res://scenes/cleanables/cleanable_puddle.gd" id="1_leymj"]
+[ext_resource type="PackedScene" uid="uid://b01a5bsd3w3ih" path="res://assets/sprites/cleanable_objects/puddle.glb" id="1_via40"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bdqlf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7mco4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_12rri"]
+
+[node name="Puddle" type="StaticBody3D" groups=["puddle"]]
+script = ExtResource("1_leymj")
+
+[node name="puddle" parent="." instance=ExtResource("1_via40")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.226425, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_bdqlf")
+disabled = true
+
+[node name="Hurtbox" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.996429, 0)
+collision_layer = 4
+collision_mask = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("BoxShape3D_7mco4")
+
+[node name="Hitbox" type="Area3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Hitbox"]
+shape = SubResource("BoxShape3D_12rri")
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
