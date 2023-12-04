@@ -11,8 +11,10 @@ var basic_attack_hitbox: Node
 var is_attacking: bool = false
 var enemies_touching: int = 0
 var invulnerable: bool = false
-var is_facing_left: bool = true
+var is_facing_left: bool = false
 var knockback: Vector3
+
+@onready var _animation_player = $AnimationPlayer
 
 signal died
 
@@ -21,6 +23,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("basic_attack") and not is_attacking:
 		is_attacking = true
 		$PlayerAttack.play()
+		_animation_player.play("Basic_Attack")
 		basic_attack_hitbox = hitbox_scene.instantiate()
 		basic_attack_hitbox.add_to_group("player_basic_attack")
 		if is_facing_left == true:
@@ -52,6 +55,7 @@ func _process(delta):
 			health -= 4
 			GlobalStatsManager.set_player_health(health)
 			$PlayerHurt.play()
+			_animation_player.play("Damage")
 			#print("Player health: ", health)
 			if (health <= 0):
 				$PlayerDeath.play()
@@ -62,10 +66,14 @@ func _process(delta):
 	# Change facing direction
 	if not is_facing_left and Input.is_action_just_pressed("move_left"):
 		is_facing_left = true
-		$Sprite3D.flip_h = false
+		$Sprite3D.flip_h = true
 	elif is_facing_left and Input.is_action_just_pressed("move_right"):
 		is_facing_left = false
-		$Sprite3D.flip_h = true
+		$Sprite3D.flip_h = false
+	
+	
+
+		
 
 func _on_basic_attack_hitbox_timer_timeout() -> void:
 	#print("Timer timeouted")
@@ -105,13 +113,16 @@ func _physics_process(delta):
 	if Input.is_action_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		$PlayerJump.play()
+		_animation_player.play("Jump")
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	# TODO: Add periodic step sound effect for walking
 	var input_dir = Input.get_vector("move_left", "move_right", "ui_up", "ui_down")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	
 	if direction:
+		_animation_player.play("Run")
 		velocity.x = direction.x * current_speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, current_speed)
