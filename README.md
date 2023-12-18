@@ -1,7 +1,8 @@
 # Dust Busters
- Dust Busters - Fall 2023 VGDC Game
+ Dust Busters - Fall 2023 UCI VGDC Game
+ Play the game here: https://m-tsoi.itch.io/dust-busters
 
-# Important Information:
-* If you are a programmar PLEASE MAKE A BRANCH or work on a scene no one else is working on.
-* A new branch is automatically created anytime you make changes, so after commiting either review your own changes or ask someone to before you merge it with the main branch
-* When pushing big cross scene commits, please notify everyone on Discord with @Programmers
+# Programmer's Important Information:
+* PLEASE MAKE A BRANCH when working on the game. Do not make any commits on main
+* When you have finished implementing features on your branch and are ready to be merged to main, please open a pull request and send the link to the programmers for a review and a stamp. 
+* After the pull request is approved and merged to main, make sure that your branch is up-to-date to main
