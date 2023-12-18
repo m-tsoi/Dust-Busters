@@ -1,5 +1,5 @@
 # Dust Busters
- Dust Busters - Fall 2023 UCI VGDC Game
+ Dust Busters - Fall 2023 UCI VGDC Game  
  Play the game here: https://m-tsoi.itch.io/dust-busters
 
 # Programmer's Important Information:
