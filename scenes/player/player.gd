@@ -18,6 +18,9 @@ var knockback: Vector3
 
 signal died
 
+func _ready():
+	$PlayerViewport.set_update_mode(SubViewport.UPDATE_WHEN_PARENT_VISIBLE)
+
 func _process(delta):
 	# Basic attack
 	if Input.is_action_just_pressed("basic_attack") and not is_attacking:

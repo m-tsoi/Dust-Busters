@@ -62,6 +62,7 @@ func _physics_process(delta):
 		jump_timer.connect("timeout", _on_jump_timer_timeout)
 	elif is_on_floor():
 		velocity.x = 0
+	velocity.z = 0
 	move_and_slide()
 
 func _on_hurtbox_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
